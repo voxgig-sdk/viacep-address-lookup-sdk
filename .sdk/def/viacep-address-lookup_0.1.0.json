@@ -1,0 +1,179 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "ViaCEP Address Lookup",
+    "description": "ViaCEP is a free web service that allows users to query Brazilian postal codes (CEPs) and retrieve address information in JSON or XML format. The service supports AJAX requests and facilitates easy integration for address autofill and validation in applications.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://viacep.com.br/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://viacep.com.br/ws",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/{cep}/json": {
+      "get": {
+        "summary": "Query CEP in JSON format",
+        "description": "Retrieves address information for a given Brazilian postal code (CEP) in JSON format",
+        "operationId": "getCepJson",
+        "parameters": [
+          {
+            "name": "cep",
+            "in": "path",
+            "description": "Brazilian postal code (CEP) - 8 digits with or without hyphen (e.g., 01310-100 or 01310100)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{8}$|^[0-9]{5}-[0-9]{3}$",
+              "example": "01310100"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with address information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cep": {
+                      "type": "string",
+                      "description": "Postal code (CEP) in formatted style",
+                      "example": "01310-100"
+                    },
+                    "logradouro": {
+                      "type": "string",
+                      "description": "Street name",
+                      "example": "Avenida Paulista"
+                    },
+                    "complemento": {
+                      "type": "string",
+                      "description": "Additional address information",
+                      "example": "de 612 a 1510 - lado par"
+                    },
+                    "bairro": {
+                      "type": "string",
+                      "description": "Neighborhood",
+                      "example": "Bela Vista"
+                    },
+                    "localidade": {
+                      "type": "string",
+                      "description": "City name",
+                      "example": "São Paulo"
+                    },
+                    "uf": {
+                      "type": "string",
+                      "description": "State abbreviation",
+                      "example": "SP"
+                    },
+                    "ibge": {
+                      "type": "string",
+                      "description": "IBGE city code",
+                      "example": "3550308"
+                    },
+                    "gia": {
+                      "type": "string",
+                      "description": "GIA code (São Paulo state)",
+                      "example": "1004"
+                    },
+                    "ddd": {
+                      "type": "string",
+                      "description": "Area code (DDD)",
+                      "example": "11"
+                    },
+                    "siafi": {
+                      "type": "string",
+                      "description": "SIAFI code",
+                      "example": "7107"
+                    }
+                  }
+                },
+                "examples": {
+                  "validCep": {
+                    "summary": "Valid CEP response",
+                    "value": {
+                      "cep": "01310-100",
+                      "logradouro": "Avenida Paulista",
+                      "complemento": "de 612 a 1510 - lado par",
+                      "bairro": "Bela Vista",
+                      "localidade": "São Paulo",
+                      "uf": "SP",
+                      "ibge": "3550308",
+                      "gia": "1004",
+                      "ddd": "11",
+                      "siafi": "7107"
+                    }
+                  },
+                  "invalidCep": {
+                    "summary": "Invalid CEP response",
+                    "value": {
+                      "erro": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid CEP format"
+          }
+        },
+        "tags": [
+          "CEP Lookup"
+        ]
+      }
+    },
+    "/{cep}/xml": {
+      "get": {
+        "summary": "Query CEP in XML format",
+        "description": "Retrieves address information for a given Brazilian postal code (CEP) in XML format",
+        "operationId": "getCepXml",
+        "parameters": [
+          {
+            "name": "cep",
+            "in": "path",
+            "description": "Brazilian postal code (CEP) - 8 digits with or without hyphen (e.g., 01310-100 or 01310100)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{8}$|^[0-9]{5}-[0-9]{3}$",
+              "example": "01310100"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with address information in XML format",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "xml": {
+                    "name": "xmlcep"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid CEP format"
+          }
+        },
+        "tags": [
+          "CEP Lookup"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "CEP Lookup",
+      "description": "Operations for querying Brazilian postal codes (CEPs)"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "cep_lookup": {
+      "CEP_LOOKUP00": {
+        "bairro": "s64",
+        "cep": "s65",
+        "complemento": "s66",
+        "ddd": "s67",
+        "gia": "s68",
+        "ibge": "s69",
+        "localidade": "s6a",
+        "logradouro": "s6b",
+        "siafi": "s6c",
+        "uf": "s6d"
+      },
+      "CEP_LOOKUP01": {
+        "bairro": "sc8",
+        "cep": "sc9",
+        "complemento": "sca",
+        "ddd": "scb",
+        "gia": "scc",
+        "ibge": "scd",
+        "localidade": "sce",
+        "logradouro": "scf",
+        "siafi": "sd0",
+        "uf": "sd1"
+      },
+      "CEP_LOOKUP02": {
+        "bairro": "s12c",
+        "cep": "s12d",
+        "complemento": "s12e",
+        "ddd": "s12f",
+        "gia": "s130",
+        "ibge": "s131",
+        "localidade": "s132",
+        "logradouro": "s133",
+        "siafi": "s134",
+        "uf": "s135"
+      }
+    }
+  },
+  "new": {
+    "cep_lookup": {
+      "cep_lookup_ref01": {
+        "bairro": "s190",
+        "cep": "s191",
+        "complemento": "s192",
+        "ddd": "s193",
+        "gia": "s194",
+        "ibge": "s195",
+        "localidade": "s196",
+        "logradouro": "s197",
+        "siafi": "s198",
+        "uf": "s199"
+      }
+    }
+  }
+}

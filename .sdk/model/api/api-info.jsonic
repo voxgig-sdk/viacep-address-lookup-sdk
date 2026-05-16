@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://viacep.com.br/"
+      }
+      description: "ViaCEP is a free web service that allows users to query Brazilian postal codes (CEPs) and retrieve address information in JSON or XML format. The service supports AJAX requests and facilitates easy integration for address autofill and validation in applications."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://viacep.com.br/ws"
+        }
+      ]
+      title: "ViaCEP Address Lookup"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

@@ -1,0 +1,129 @@
+# Entity: cep_lookup
+
+main: kit: entity: cep_lookup: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "bairro"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "cep"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "complemento"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ddd"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "gia"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "ibge"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "localidade"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "logradouro"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "siafi"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "uf"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "cep_lookup"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "01310100"
+                kind: "param"
+                name: "cep"
+                orig: "cep"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/{cep}/json"
+          parts: [
+            "{cep}"
+            "json"
+          ]
+          select: {
+            exist: [
+              "cep"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "01310100"
+                kind: "param"
+                name: "cep"
+                orig: "cep"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/{cep}/xml"
+          parts: [
+            "{cep}"
+            "xml"
+          ]
+          select: {
+            exist: [
+              "cep"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
