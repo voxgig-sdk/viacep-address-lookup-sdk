@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/viacep-address-lookup-sdk"
-	"github.com/voxgig-sdk/viacep-address-lookup-sdk/core"
+	sdk "github.com/voxgig-sdk/viacep-address-lookup-sdk/go"
+	"github.com/voxgig-sdk/viacep-address-lookup-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/viacep-address-lookup-sdk/go/utility/struct"
 )
 
 func TestCepLookupEntity(t *testing.T) {

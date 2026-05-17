@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://viacep.com.br/ws',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

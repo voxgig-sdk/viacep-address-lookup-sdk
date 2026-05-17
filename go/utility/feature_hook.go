@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"github.com/voxgig-sdk/viacep-address-lookup-sdk/core"
+	"github.com/voxgig-sdk/viacep-address-lookup-sdk/go/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {

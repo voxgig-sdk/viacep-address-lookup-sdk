@@ -11,7 +11,8 @@
         "localidade": "s6a",
         "logradouro": "s6b",
         "siafi": "s6c",
-        "uf": "s6d"
+        "uf": "s6d",
+        "id": "CEP_LOOKUP00"
       },
       "CEP_LOOKUP01": {
         "bairro": "sc8",
@@ -23,7 +24,8 @@
         "localidade": "sce",
         "logradouro": "scf",
         "siafi": "sd0",
-        "uf": "sd1"
+        "uf": "sd1",
+        "id": "CEP_LOOKUP01"
       },
       "CEP_LOOKUP02": {
         "bairro": "s12c",
@@ -35,7 +37,8 @@
         "localidade": "s132",
         "logradouro": "s133",
         "siafi": "s134",
-        "uf": "s135"
+        "uf": "s135",
+        "id": "CEP_LOOKUP02"
       }
     }
   },

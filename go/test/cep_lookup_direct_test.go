@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/viacep-address-lookup-sdk"
-	"github.com/voxgig-sdk/viacep-address-lookup-sdk/core"
+	sdk "github.com/voxgig-sdk/viacep-address-lookup-sdk/go"
+	"github.com/voxgig-sdk/viacep-address-lookup-sdk/go/core"
 )
 
 func TestCepLookupDirect(t *testing.T) {

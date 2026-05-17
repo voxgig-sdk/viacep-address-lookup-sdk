@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/viacep-address-lookup-sdk/core"
+	"github.com/voxgig-sdk/viacep-address-lookup-sdk/go/core"
 )
 
 type BaseFeature struct {

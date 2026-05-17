@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/viacep-address-lookup-sdk/core"
+	"github.com/voxgig-sdk/viacep-address-lookup-sdk/go/core"
 )
 
 type LogFeature struct {
