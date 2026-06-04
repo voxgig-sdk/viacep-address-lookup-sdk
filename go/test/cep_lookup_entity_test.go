@@ -117,7 +117,6 @@ func cep_lookupBasicSetup(extra map[string]any) *entityTestSetup {
 		"VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID": idmap,
 		"VIACEPADDRESSLOOKUP_TEST_LIVE":      "FALSE",
 		"VIACEPADDRESSLOOKUP_TEST_EXPLAIN":   "FALSE",
-		"VIACEPADDRESSLOOKUP_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID"])
@@ -128,7 +127,6 @@ func cep_lookupBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["VIACEPADDRESSLOOKUP_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["VIACEPADDRESSLOOKUP_APIKEY"],
 			},
 			extra,
 		})

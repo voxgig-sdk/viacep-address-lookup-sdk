@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID': {},
     'VIACEPADDRESSLOOKUP_TEST_LIVE': 'FALSE',
-    'VIACEPADDRESSLOOKUP_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.VIACEPADDRESSLOOKUP_TEST_LIVE
 
   if (live) {
     const client = new ViacepAddressLookupSDK({
-      apikey: env.VIACEPADDRESSLOOKUP_APIKEY,
     })
 
     let idmap: any = env['VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID']
