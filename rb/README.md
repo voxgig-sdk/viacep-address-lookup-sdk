@@ -10,13 +10,13 @@ The Ruby SDK for the ViacepAddressLookup API — an entity-oriented client using
 
 ## Install
 ```bash
-gem install viacep-address-lookup-sdk
+gem install voxgig-sdk-viacep-address-lookup
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "viacep-address-lookup-sdk"
+gem "voxgig-sdk-viacep-address-lookup"
 ```
 
 Then run:

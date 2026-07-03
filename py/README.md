@@ -10,7 +10,7 @@ The Python SDK for the ViacepAddressLookup API — an entity-oriented client fol
 
 ## Install
 ```bash
-pip install viacep-address-lookup-sdk
+pip install voxgig-sdk-viacep-address-lookup
 ```
 
 Or install from source:

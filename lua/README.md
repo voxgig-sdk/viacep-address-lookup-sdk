@@ -10,7 +10,7 @@ The Lua SDK for the ViacepAddressLookup API — an entity-oriented client using 
 
 ## Install
 ```bash
-luarocks install viacep-address-lookup-sdk
+luarocks install voxgig-sdk-viacep-address-lookup
 ```
 
 If the module is not yet published, add the source directory to

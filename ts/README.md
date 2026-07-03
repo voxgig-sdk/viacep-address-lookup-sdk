@@ -10,7 +10,7 @@ The TypeScript SDK for the ViacepAddressLookup API — a type-safe, entity-orien
 
 ## Install
 ```bash
-npm install viacep-address-lookup
+npm install @voxgig-sdk/viacep-address-lookup
 ```
 ## Tutorial: your first API call
 

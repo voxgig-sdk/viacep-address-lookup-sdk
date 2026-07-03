@@ -10,7 +10,7 @@ The PHP SDK for the ViacepAddressLookup API — an entity-oriented client using 
 
 ## Install
 ```bash
-composer require voxgig/viacep-address-lookup-sdk
+composer require voxgig-sdk/viacep-address-lookup
 ```
 
 
