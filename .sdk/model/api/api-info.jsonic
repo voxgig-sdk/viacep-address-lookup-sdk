@@ -16,27 +16,7 @@ main: {
       ]
       title: "ViaCEP Address Lookup"
       version: "1.0.0"
-      tagline: "Look up Brazilian postal codes (CEP) and resolve them to street, neighborhood, city and state"
-      homepage: "https://viacep.com.br/"
-      docs_url: "https://viacep.com.br/"
-      license_short: "Free public web service; no redistribution of the database, no commercial resale"
-      license_md: `- Free to call from applications; no API key required.
-- The underlying CEP database may not be redistributed or sold.
-- Heavy bulk usage to validate local databases may result in automatic, indefinite blocking.
-- No formal open-source licence is published; treat the service itself as the licensed artefact.`
-      about_md: `[ViaCEP](https://viacep.com.br/) is a free Brazilian web service for looking up postal codes (*Código de Endereçamento Postal*, or CEP) and resolving them to a structured postal address. It is widely used in Brazilian e-commerce and government forms for address autofill and validation.
-
-What you get from the API:
-
-- Forward lookup by 8-digit CEP: \`GET /ws/{cep}/json/\` returns the street (\`logradouro\`), complement, neighborhood (\`bairro\`), city (\`localidade\`), state (\`uf\`), region (\`regiao\`), and codes such as IBGE, GIA, DDD and SIAFI.
-- Reverse lookup by address: \`GET /ws/{uf}/{cidade}/{logradouro}/json/\` returns up to 50 matching CEPs (UF, city, and street each need at least 3 characters).
-- Alternate response formats: JSON, XML and JSONP (with a \`callback\` parameter).
-
-Operational notes: the service responds over HTTPS with CORS enabled, so it can be called directly from browsers. Invalid or non-existent CEPs return \`{"erro": "true"}\` rather than an HTTP error; malformed requests return \`400 Bad Request\`. There is no published rate limit, but the operators warn that bulk validation of local databases can trigger an automatic block.`
-      entity_desc: {
-        cep_lookup: "A Brazilian postal code (CEP) and its resolved address; forward lookup at `/ws/{cep}/json/` and reverse lookup by state, city and street at `/ws/{uf}/{cidade}/{logradouro}/json/`."
-      }
-      auth: false
     }
   }
 }
+

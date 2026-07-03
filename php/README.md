@@ -1,6 +1,11 @@
 # ViacepAddressLookup PHP SDK
 
-The PHP SDK for the ViacepAddressLookup API. Provides an entity-oriented interface using PHP conventions.
+
+
+The PHP SDK for the ViacepAddressLookup API — an entity-oriented client using PHP conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -20,13 +25,15 @@ loading a specific record.
 <?php
 require_once 'viacepaddresslookup_sdk.php';
 
-$client = new ViacepAddressLookupSDK([]);
+$client = new ViacepAddressLookupSDK([
+    "apikey" => getenv("VIACEP-ADDRESS-LOOKUP_APIKEY"),
+]);
 ```
 
 ### 3. Load a ceplookup
 
 ```php
-[$result, $err] = $client->CepLookup(null)->load(["id" => "example_id"], null);
+[$result, $err] = $client->CepLookup()->load(["id" => "example_id"]);
 if ($err) { throw new \Exception($err); }
 print_r($result);
 ```
@@ -72,11 +79,9 @@ print_r($fetchdef["headers"]);
 Create a mock client for unit testing — no server required:
 
 ```php
-$client = ViacepAddressLookupSDK::test(null, null);
+$client = ViacepAddressLookupSDK::test();
 
-[$result, $err] = $client->ViacepAddressLookup(null)->load(
-    ["id" => "test01"], null
-);
+[$result, $err] = $client->ViacepAddressLookup()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -111,6 +116,7 @@ Create a `.env.local` file at the project root:
 
 ```
 VIACEP-ADDRESS-LOOKUP_TEST_LIVE=TRUE
+VIACEP-ADDRESS-LOOKUP_APIKEY=<your-key>
 ```
 
 Then run:
@@ -133,6 +139,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

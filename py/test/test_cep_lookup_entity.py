@@ -91,6 +91,7 @@ def _cep_lookup_basic_setup(extra):
         "VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID": idmap,
         "VIACEPADDRESSLOOKUP_TEST_LIVE": "FALSE",
         "VIACEPADDRESSLOOKUP_TEST_EXPLAIN": "FALSE",
+        "VIACEPADDRESSLOOKUP_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _cep_lookup_basic_setup(extra):
     if env.get("VIACEPADDRESSLOOKUP_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("VIACEPADDRESSLOOKUP_APIKEY"),
             },
             extra or {},
         ])

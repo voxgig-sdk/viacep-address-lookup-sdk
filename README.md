@@ -1,20 +1,8 @@
 # ViacepAddressLookup SDK
 
-Look up Brazilian postal codes (CEP) and resolve them to street, neighborhood, city and state
+ViaCEP Address Lookup client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About ViaCEP Address Lookup
-
-[ViaCEP](https://viacep.com.br/) is a free Brazilian web service for looking up postal codes (*Código de Endereçamento Postal*, or CEP) and resolving them to a structured postal address. It is widely used in Brazilian e-commerce and government forms for address autofill and validation.
-
-What you get from the API:
-
-- Forward lookup by 8-digit CEP: `GET /ws/{cep}/json/` returns the street (`logradouro`), complement, neighborhood (`bairro`), city (`localidade`), state (`uf`), region (`regiao`), and codes such as IBGE, GIA, DDD and SIAFI.
-- Reverse lookup by address: `GET /ws/{uf}/{cidade}/{logradouro}/json/` returns up to 50 matching CEPs (UF, city, and street each need at least 3 characters).
-- Alternate response formats: JSON, XML and JSONP (with a `callback` parameter).
-
-Operational notes: the service responds over HTTPS with CORS enabled, so it can be called directly from browsers. Invalid or non-existent CEPs return `{"erro": "true"}` rather than an HTTP error; malformed requests return `400 Bad Request`. There is no published rate limit, but the operators warn that bulk validation of local databases can trigger an automatic block.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install viacep-address-lookup-sdk
 luarocks install viacep-address-lookup-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { ViacepAddressLookupSDK } from 'viacep-address-lookup'
 
-const client = new ViacepAddressLookupSDK({})
+const client = new ViacepAddressLookupSDK({
+  apikey: process.env.VIACEP-ADDRESS-LOOKUP_APIKEY,
+})
 
+// Load ceplookup data
+const ceplookup = await client.CepLookup().load({})
+console.log(ceplookup.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **CepLookup** | A Brazilian postal code (CEP) and its resolved address; forward lookup at `/ws/{cep}/json/` and reverse lookup by state, city and street at `/ws/{uf}/{cidade}/{logradouro}/json/`. | `/{cep}/json` |
+| **CepLookup** |  | `/{cep}/json` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from viacepaddresslookup_sdk import ViacepAddressLookupSDK
 
-client = ViacepAddressLookupSDK({})
+client = ViacepAddressLookupSDK({
+    "apikey": os.environ.get("VIACEP-ADDRESS-LOOKUP_APIKEY"),
+})
 
 
 # Load a specific ceplookup
-ceplookup, err = client.CepLookup(None).load(
-    {"id": "example_id"}, None
-)
+ceplookup, err = client.CepLookup().load({"id": "example_id"})
+print(ceplookup)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ ceplookup, err = client.CepLookup(None).load(
 <?php
 require_once 'viacepaddresslookup_sdk.php';
 
-$client = new ViacepAddressLookupSDK([]);
+$client = new ViacepAddressLookupSDK([
+    "apikey" => getenv("VIACEP-ADDRESS-LOOKUP_APIKEY"),
+]);
 
 
 // Load a specific ceplookup
-[$ceplookup, $err] = $client->CepLookup(null)->load(
-    ["id" => "example_id"], null
-);
+[$ceplookup, $err] = $client->CepLookup()->load(["id" => "example_id"]);
+print_r($ceplookup);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new ViacepAddressLookupSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/viacep-address-lookup-sdk/go"
 
-client := sdk.NewViacepAddressLookupSDK(map[string]any{})
+client := sdk.NewViacepAddressLookupSDK(map[string]any{
+    "apikey": os.Getenv("VIACEP-ADDRESS-LOOKUP_APIKEY"),
+})
 
+// Load ceplookup data
+ceplookup, err := client.CepLookup(nil).Load(map[string]any{}, nil)
+fmt.Println(ceplookup)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewViacepAddressLookupSDK(map[string]any{})
 ```ruby
 require_relative "ViacepAddressLookup_sdk"
 
-client = ViacepAddressLookupSDK.new({})
+client = ViacepAddressLookupSDK.new({
+  "apikey" => ENV["VIACEP-ADDRESS-LOOKUP_APIKEY"],
+})
 
 
 # Load a specific ceplookup
-ceplookup, err = client.CepLookup(nil).load(
-  { "id" => "example_id" }, nil
-)
+ceplookup, err = client.CepLookup().load({ "id" => "example_id" })
+puts ceplookup
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ ceplookup, err = client.CepLookup(nil).load(
 ```lua
 local sdk = require("viacep-address-lookup_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("VIACEP-ADDRESS-LOOKUP_APIKEY"),
+})
 
 
 -- Load a specific ceplookup
-local ceplookup, err = client:CepLookup(nil):load(
-  { id = "example_id" }, nil
-)
+local ceplookup, err = client:CepLookup():load({ id = "example_id" })
+print(ceplookup)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.CepLookup().load({ id: 'test01' })
 ### Python
 
 ```python
-client = ViacepAddressLookupSDK.test(None, None)
-result, err = client.CepLookup(None).load(
-    {"id": "test01"}, None
-)
+client = ViacepAddressLookupSDK.test()
+result, err = client.CepLookup().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = ViacepAddressLookupSDK::test(null, null);
-[$result, $err] = $client->CepLookup(null)->load(
-    ["id" => "test01"], null
-);
+$client = ViacepAddressLookupSDK::test();
+[$result, $err] = $client->CepLookup()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.CepLookup(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.CepLookup(nil).Load(
 ### Ruby
 
 ```ruby
-client = ViacepAddressLookupSDK.test(nil, nil)
-result, err = client.CepLookup(nil).load(
-  { "id" => "test01" }, nil
-)
+client = ViacepAddressLookupSDK.test
+result, err = client.CepLookup().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:CepLookup(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:CepLookup():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the ViaCEP Address Lookup
-
-- Upstream: [https://viacep.com.br/](https://viacep.com.br/)
-
-- Free to call from applications; no API key required.
-- The underlying CEP database may not be redistributed or sold.
-- Heavy bulk usage to validate local databases may result in automatic, indefinite blocking.
-- No formal open-source licence is published; treat the service itself as the licensed artefact.
 
 ---
 

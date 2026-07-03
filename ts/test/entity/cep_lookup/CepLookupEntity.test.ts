@@ -111,6 +111,7 @@ function basicSetup(extra?: any) {
     'VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID': idmap,
     'VIACEP_ADDRESS_LOOKUP_TEST_LIVE': 'FALSE',
     'VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN': 'FALSE',
+    'VIACEP_ADDRESS_LOOKUP_APIKEY': 'NONE',
   })
 
   idmap = env['VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID']
@@ -120,6 +121,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new ViacepAddressLookupSDK(merge([
       {
+        apikey: env.VIACEP_ADDRESS_LOOKUP_APIKEY,
       },
       extra
     ]))

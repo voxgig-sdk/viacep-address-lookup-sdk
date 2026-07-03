@@ -66,12 +66,14 @@ def _cep_lookup_direct_setup(mockres):
     env = runner.env_override({
         "VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID": {},
         "VIACEPADDRESSLOOKUP_TEST_LIVE": "FALSE",
+        "VIACEPADDRESSLOOKUP_APIKEY": "NONE",
     })
 
     live = env.get("VIACEPADDRESSLOOKUP_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("VIACEPADDRESSLOOKUP_APIKEY"),
         }
         client = ViacepAddressLookupSDK(merged_opts)
         return {
