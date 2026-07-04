@@ -233,10 +233,10 @@ class ViacepAddressLookupSDK
 
     private $_cep_lookup = null;
 
-    // Idiomatic facade: $client->cep_lookup()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias CepLookup() (PHP method
-    // names are case-insensitive).
-    public function cep_lookup($data = null)
+    // Canonical facade: $client->CepLookup()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->cep_lookup()
+    // resolves here too.
+    public function CepLookup($data = null)
     {
         require_once __DIR__ . '/entity/cep_lookup_entity.php';
         if ($data === null) {

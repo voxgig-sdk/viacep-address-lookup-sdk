@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## CepLookupEntity
 
 ```lua
-local cep_lookup = client:cep_lookup(nil)
+local cep_lookup = client:CepLookup(nil)
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ local cep_lookup = client:cep_lookup(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:cep_lookup():load({ id = "cep_lookup_id" })
+local result, err = client:CepLookup():load({ id = "cep_lookup_id" })
 ```
 
 ### Common Methods

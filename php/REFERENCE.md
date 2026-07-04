@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CepLookupEntity
 
 ```php
-$cep_lookup = $client->cep_lookup();
+$cep_lookup = $client->CepLookup();
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ $cep_lookup = $client->cep_lookup();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->cep_lookup()->load(["id" => "cep_lookup_id"]);
+$result = $client->CepLookup()->load(["id" => "cep_lookup_id"]);
 ```
 
 ### Common Methods

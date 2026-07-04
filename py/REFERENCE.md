@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CepLookupEntity
 
 ```python
-cep_lookup = client.cep_lookup
+cep_lookup = client.CepLookup()
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ cep_lookup = client.cep_lookup
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.cep_lookup.load({"id": "cep_lookup_id"})
+result = client.CepLookup().load({"id": "cep_lookup_id"})
 ```
 
 ### Common Methods

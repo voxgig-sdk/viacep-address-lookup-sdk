@@ -33,10 +33,12 @@ client = ViacepAddressLookupSDK()
 
 ### 3. Load a ceplookup
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.ceplookup.load({"id": "example_id"})
-    print(result)
+    ceplookup = client.CepLookup().load({"id": "example_id"})
+    print(ceplookup)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = ViacepAddressLookupSDK.test()
 
-result = client.ceplookup.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+ceplookup = client.CepLookup().load({"id": "test01"})
+# ceplookup contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -227,7 +230,7 @@ API path: `/{cep}/json`
 
 ### CepLookup
 
-Create an instance: `const cep_lookup = client.cep_lookup`
+Create an instance: `cep_lookup = client.CepLookup()`
 
 #### Operations
 
@@ -252,8 +255,8 @@ Create an instance: `const cep_lookup = client.cep_lookup`
 
 #### Example: Load
 
-```ts
-const cep_lookup = await client.cep_lookup.load({ id: 'cep_lookup_id' })
+```python
+cep_lookup = client.CepLookup().load({"id": "cep_lookup_id"})
 ```
 
 
@@ -327,7 +330,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-ceplookup = client.ceplookup
+ceplookup = client.CepLookup()
 ceplookup.load({"id": "example_id"})
 
 # ceplookup.data_get() now returns the loaded ceplookup data

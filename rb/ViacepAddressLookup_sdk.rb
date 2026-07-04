@@ -208,13 +208,7 @@ class ViacepAddressLookupSDK
   end
 
 
-  # Idiomatic facade: client.cep_lookup.list / client.cep_lookup.load({ "id" => ... })
-  def cep_lookup
-    require_relative 'entity/cep_lookup_entity'
-    @cep_lookup ||= CepLookupEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.cep_lookup instead.
+  # Canonical facade: client.CepLookup.list / client.CepLookup.load({ "id" => ... })
   def CepLookup(data = nil)
     require_relative 'entity/cep_lookup_entity'
     CepLookupEntity.new(self, data)

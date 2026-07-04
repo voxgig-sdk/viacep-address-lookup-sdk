@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## CepLookupEntity
 
 ```ruby
-cep_lookup = client.cep_lookup
+cep_lookup = client.CepLookup
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ cep_lookup = client.cep_lookup
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.cep_lookup.load({ "id" => "cep_lookup_id" })
+result = client.CepLookup.load({ "id" => "cep_lookup_id" })
 ```
 
 ### Common Methods

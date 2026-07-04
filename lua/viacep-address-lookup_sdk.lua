@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:cep_lookup():list() / client:cep_lookup():load({ id = ... })
-function ViacepAddressLookupSDK:cep_lookup(data)
+-- Idiomatic facade: client:CepLookup():list() / client:CepLookup():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function ViacepAddressLookupSDK:CepLookup(data)
   local EntityMod = require("entity.cep_lookup_entity")
   if data == nil then
     if self._cep_lookup == nil then
@@ -253,12 +254,6 @@ function ViacepAddressLookupSDK:cep_lookup(data)
     end
     return self._cep_lookup
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:cep_lookup() instead.
-function ViacepAddressLookupSDK:CepLookup(data)
-  local EntityMod = require("entity.cep_lookup_entity")
   return EntityMod.new(self, data)
 end
 

@@ -26,9 +26,9 @@ import { ViacepAddressLookupSDK } from '@voxgig-sdk/viacep-address-lookup'
 
 const client = new ViacepAddressLookupSDK()
 
-// Load ceplookup data
-const ceplookup = await client.ceplookup.load({})
-console.log(ceplookup.data)
+// Load ceplookup data (returns a CepLookup)
+const ceplookup = await client.CepLookup().load()
+console.log(ceplookup)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from viacepaddresslookup_sdk import ViacepAddressLookupSDK
 client = ViacepAddressLookupSDK()
 
 
-# Load a specific ceplookup
-ceplookup = client.ceplookup.load({"id": "example_id"})
+# Load a specific ceplookup (returns the record, raises on error)
+ceplookup = client.CepLookup().load({"id": "example_id"})
 print(ceplookup)
 ```
 
@@ -98,8 +98,8 @@ require_once 'viacepaddresslookup_sdk.php';
 $client = new ViacepAddressLookupSDK();
 
 
-// Load a specific ceplookup
-$ceplookup = $client->ceplookup()->load(["id" => "example_id"]);
+// Load a specific ceplookup (returns the bare record; throws on error)
+$ceplookup = $client->CepLookup()->load(["id" => "example_id"]);
 print_r($ceplookup);
 ```
 
@@ -123,8 +123,8 @@ require_relative "ViacepAddressLookup_sdk"
 client = ViacepAddressLookupSDK.new
 
 
-# Load a specific ceplookup
-ceplookup = client.ceplookup.load({ "id" => "example_id" })
+# Load a specific ceplookup (returns the bare record; raises on error)
+ceplookup = client.CepLookup.load({ "id" => "example_id" })
 puts ceplookup
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific ceplookup
-local ceplookup, err = client:ceplookup():load({ id = "example_id" })
+local ceplookup, err = client:CepLookup():load({ id = "example_id" })
 print(ceplookup)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = ViacepAddressLookupSDK.test()
-const result = await client.ceplookup.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const ceplookup = await client.CepLookup().load({ id: 'test01' })
+// ceplookup is a bare CepLookup populated with mock data
+console.log(ceplookup)
 ```
 
 ### Python
 
 ```python
 client = ViacepAddressLookupSDK.test()
-result = client.ceplookup.load({"id": "test01"})
+ceplookup = client.CepLookup().load({"id": "test01"})
+print(ceplookup)
 ```
 
 ### PHP
 
 ```php
-$client = ViacepAddressLookupSDK::test();
-$result = $client->ceplookup()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = ViacepAddressLookupSDK::test([
+    "entity" => ["ceplookup" => ["test01" => ["id" => "test01"]]],
+]);
+$ceplookup = $client->CepLookup()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.CepLookup(nil).Load(
 ### Ruby
 
 ```ruby
-client = ViacepAddressLookupSDK.test
-result = client.ceplookup.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = ViacepAddressLookupSDK.test({
+  "entity" => { "ceplookup" => { "test01" => { "id" => "test01" } } },
+})
+ceplookup = client.CepLookup.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:ceplookup():load({ id = "test01" })
+local result, err = client:CepLookup():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

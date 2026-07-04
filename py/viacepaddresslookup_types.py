@@ -4,28 +4,30 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class CepLookup:
-    bairro: Optional[str] = None
-    cep: Optional[str] = None
-    complemento: Optional[str] = None
-    ddd: Optional[str] = None
-    gia: Optional[str] = None
-    ibge: Optional[str] = None
-    localidade: Optional[str] = None
-    logradouro: Optional[str] = None
-    siafi: Optional[str] = None
-    uf: Optional[str] = None
-
-
-@dataclass
-class CepLookupLoadMatch:
+class CepLookup(TypedDict, total=False):
+    bairro: str
     cep: str
+    complemento: str
+    ddd: str
+    gia: str
+    ibge: str
+    localidade: str
+    logradouro: str
+    siafi: str
+    uf: str
 
+
+class CepLookupLoadMatch(TypedDict):
+    cep: str

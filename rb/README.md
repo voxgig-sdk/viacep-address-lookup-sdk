@@ -32,8 +32,9 @@ client = ViacepAddressLookupSDK.new
 
 ```ruby
 begin
-  result = client.ceplookup.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare CepLookup record (raises on error).
+  ceplookup = client.CepLookup.load({ "id" => "example_id" })
+  puts ceplookup
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = ViacepAddressLookupSDK.test
+client = ViacepAddressLookupSDK.test({
+  "entity" => { "ceplookup" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.ceplookup.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+ceplookup = client.CepLookup.load({ "id" => "test01" })
+puts ceplookup
 ```
 
 ### Use a custom fetch function
@@ -227,7 +232,7 @@ API path: `/{cep}/json`
 
 ### CepLookup
 
-Create an instance: `const cep_lookup = client.cep_lookup`
+Create an instance: `cep_lookup = client.CepLookup`
 
 #### Operations
 
@@ -252,8 +257,9 @@ Create an instance: `const cep_lookup = client.cep_lookup`
 
 #### Example: Load
 
-```ts
-const cep_lookup = await client.cep_lookup.load({ id: 'cep_lookup_id' })
+```ruby
+# load returns the bare CepLookup record (raises on error).
+cep_lookup = client.CepLookup.load({ "id" => "cep_lookup_id" })
 ```
 
 
@@ -328,7 +334,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-ceplookup = client.ceplookup
+ceplookup = client.CepLookup
 ceplookup.load({ "id" => "example_id" })
 
 # ceplookup.data_get now returns the loaded ceplookup data

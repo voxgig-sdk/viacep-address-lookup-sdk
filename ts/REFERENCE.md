@@ -109,7 +109,7 @@ Alias for `ViacepAddressLookupSDK.test()`.
 ## CepLookupEntity
 
 ```ts
-const cep_lookup = client.cep_lookup
+const cep_lookup = client.CepLookup()
 ```
 
 ### Fields
@@ -134,7 +134,7 @@ const cep_lookup = client.cep_lookup
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.cep_lookup.load({ id: 'cep_lookup_id' })
+const result = await client.CepLookup().load({ id: 'cep_lookup_id' })
 ```
 
 ### Common Methods

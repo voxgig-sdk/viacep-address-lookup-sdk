@@ -220,25 +220,15 @@ class ViacepAddressLookupSDK:
         }
 
 
-    @property
-    def cep_lookup(self):
-        """Idiomatic facade: client.cep_lookup.list() / client.cep_lookup.load({"id": ...})."""
-        from entity.cep_lookup_entity import CepLookupEntity
-        cached = getattr(self, "_cep_lookup", None)
-        if cached is None:
-            cached = CepLookupEntity(self, None)
-            self._cep_lookup = cached
-        return cached
-
-    def CepLookup(self, data=None):
-        # Deprecated: use client.cep_lookup instead.
+    def CepLookup(self, data=None) -> "CepLookupEntity":
+        """Entity factory: client.CepLookup().list({}) / client.CepLookup().load({"id": ...})."""
         from entity.cep_lookup_entity import CepLookupEntity
         return CepLookupEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "ViacepAddressLookupSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class ViacepAddressLookupSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.cep_lookup_entity import CepLookupEntity
