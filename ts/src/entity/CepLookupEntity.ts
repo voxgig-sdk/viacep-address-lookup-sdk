@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  CepLookup,
+  CepLookupLoadMatch,
+} from '../ViacepAddressLookupTypes'
 
 // TODO: needs Entity superclass
-class CepLookupEntity extends ViacepAddressLookupEntityBase {
+class CepLookupEntity extends ViacepAddressLookupEntityBase<CepLookup> {
 
   constructor(client: ViacepAddressLookupSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class CepLookupEntity extends ViacepAddressLookupEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: CepLookupLoadMatch, ctrl?: Control): Promise<CepLookup> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class CepLookupEntity extends ViacepAddressLookupEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<CepLookup> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

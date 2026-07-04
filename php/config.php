@@ -20,9 +20,6 @@ class ViacepAddressLookupConfig
             ],
             "options" => [
                 "base" => "https://viacep.com.br/ws",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -122,6 +119,7 @@ class ViacepAddressLookupConfig
                         'orig' => 'cep',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -154,6 +152,7 @@ class ViacepAddressLookupConfig
                         'orig' => 'cep',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

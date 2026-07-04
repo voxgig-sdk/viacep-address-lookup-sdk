@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `ViacepAddressLookupSDK.test()`.
 ## CepLookupEntity
 
 ```ts
-const cep_lookup = client.CepLookup()
+const cep_lookup = client.cep_lookup
 ```
 
 ### Fields
@@ -135,7 +134,7 @@ const cep_lookup = client.CepLookup()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.CepLookup().load({ id: 'cep_lookup_id' })
+const result = await client.cep_lookup.load({ id: 'cep_lookup_id' })
 ```
 
 ### Common Methods

@@ -70,14 +70,12 @@ function cep_lookup_direct_setup(mockres)
   local env = runner.env_override({
     ["VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID"] = {},
     ["VIACEPADDRESSLOOKUP_TEST_LIVE"] = "FALSE",
-    ["VIACEPADDRESSLOOKUP_APIKEY"] = "NONE",
   })
 
   local live = env["VIACEPADDRESSLOOKUP_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["VIACEPADDRESSLOOKUP_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

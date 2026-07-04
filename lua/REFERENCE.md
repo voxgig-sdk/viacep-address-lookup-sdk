@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## CepLookupEntity
 
 ```lua
-local cep_lookup = client:CepLookup(nil)
+local cep_lookup = client:cep_lookup(nil)
 ```
 
 ### Fields
@@ -109,7 +108,7 @@ local cep_lookup = client:CepLookup(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:CepLookup():load({ id = "cep_lookup_id" })
+local result, err = client:cep_lookup():load({ id = "cep_lookup_id" })
 ```
 
 ### Common Methods

@@ -110,14 +110,12 @@ func cep_lookupDirectSetup(mockres any) *cep_lookupDirectSetupResult {
 	env := envOverride(map[string]any{
 		"VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID": map[string]any{},
 		"VIACEPADDRESSLOOKUP_TEST_LIVE":    "FALSE",
-		"VIACEPADDRESSLOOKUP_APIKEY":       "NONE",
 	})
 
 	live := env["VIACEPADDRESSLOOKUP_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["VIACEPADDRESSLOOKUP_APIKEY"],
 		}
 		client := sdk.NewViacepAddressLookupSDK(mergedOpts)
 

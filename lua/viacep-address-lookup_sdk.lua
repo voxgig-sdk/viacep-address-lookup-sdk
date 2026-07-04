@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:cep_lookup():list() / client:cep_lookup():load({ id = ... })
+function ViacepAddressLookupSDK:cep_lookup(data)
+  local EntityMod = require("entity.cep_lookup_entity")
+  if data == nil then
+    if self._cep_lookup == nil then
+      self._cep_lookup = EntityMod.new(self, nil)
+    end
+    return self._cep_lookup
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:cep_lookup() instead.
 function ViacepAddressLookupSDK:CepLookup(data)
   local EntityMod = require("entity.cep_lookup_entity")
   return EntityMod.new(self, data)

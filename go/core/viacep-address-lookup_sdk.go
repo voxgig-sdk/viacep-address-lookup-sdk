@@ -245,6 +245,9 @@ func (sdk *ViacepAddressLookupSDK) Direct(fetchargs map[string]any) (map[string]
 }
 
 
+// CepLookup returns a CepLookup entity bound to this client.
+// Idiomatic usage: client.CepLookup(nil).List(nil, nil) or
+// client.CepLookup(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *ViacepAddressLookupSDK) CepLookup(data map[string]any) ViacepAddressLookupEntity {
 	return NewCepLookupEntityFunc(sdk, data)
 }

@@ -42,8 +42,7 @@ class CepLookupEntityTest < Minitest::Test
     # LOAD
     cep_lookup_ref01_ent = client.CepLookup(nil)
     cep_lookup_ref01_match_dt0 = {}
-    cep_lookup_ref01_data_dt0_loaded, err = cep_lookup_ref01_ent.load(cep_lookup_ref01_match_dt0, nil)
-    assert_nil err
+    cep_lookup_ref01_data_dt0_loaded = cep_lookup_ref01_ent.load(cep_lookup_ref01_match_dt0, nil)
     assert !cep_lookup_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def cep_lookup_basic_setup(extra)
     "VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID" => idmap,
     "VIACEPADDRESSLOOKUP_TEST_LIVE" => "FALSE",
     "VIACEPADDRESSLOOKUP_TEST_EXPLAIN" => "FALSE",
-    "VIACEPADDRESSLOOKUP_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def cep_lookup_basic_setup(extra)
   if env["VIACEPADDRESSLOOKUP_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["VIACEPADDRESSLOOKUP_APIKEY"],
       },
       extra || {},
     ])

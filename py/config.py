@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://viacep.com.br/ws",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },
@@ -117,6 +114,7 @@ def make_config():
                       "orig": "cep",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },
@@ -149,6 +147,7 @@ def make_config():
                       "orig": "cep",
                       "reqd": True,
                       "type": "`$STRING`",
+                      "index$": 0,
                     },
                   ],
                 },

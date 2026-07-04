@@ -2,6 +2,8 @@
 
 import { CepLookupEntity } from './entity/CepLookupEntity'
 
+export type * from './ViacepAddressLookupTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class ViacepAddressLookupSDK {
 
 
 
+  _cep_lookup?: CepLookupEntity
+
+  // Idiomatic facade: `client.cep_lookup.list()` / `client.cep_lookup.load({ id })`.
+  get cep_lookup(): CepLookupEntity {
+    return (this._cep_lookup ??= new CepLookupEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.cep_lookup` instead. */
   CepLookup(data?: any) {
     const self = this
     return new CepLookupEntity(self,data)
