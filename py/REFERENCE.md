@@ -8,7 +8,7 @@ Complete API reference for the ViacepAddressLookup Python SDK.
 ### Constructor
 
 ```python
-from viacep-address-lookup_sdk import ViacepAddressLookupSDK
+from viacepaddresslookup_sdk import ViacepAddressLookupSDK
 
 client = ViacepAddressLookupSDK(options)
 ```
@@ -87,16 +87,16 @@ cep_lookup = client.CepLookup()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bairro` | ``$STRING`` | No |  |
-| `cep` | ``$STRING`` | No |  |
-| `complemento` | ``$STRING`` | No |  |
-| `ddd` | ``$STRING`` | No |  |
-| `gia` | ``$STRING`` | No |  |
-| `ibge` | ``$STRING`` | No |  |
-| `localidade` | ``$STRING`` | No |  |
-| `logradouro` | ``$STRING`` | No |  |
-| `siafi` | ``$STRING`` | No |  |
-| `uf` | ``$STRING`` | No |  |
+| `bairro` | `str` | No |  |
+| `cep` | `str` | No |  |
+| `complemento` | `str` | No |  |
+| `ddd` | `str` | No |  |
+| `gia` | `str` | No |  |
+| `ibge` | `str` | No |  |
+| `localidade` | `str` | No |  |
+| `logradouro` | `str` | No |  |
+| `siafi` | `str` | No |  |
+| `uf` | `str` | No |  |
 
 ### Operations
 
@@ -105,7 +105,7 @@ cep_lookup = client.CepLookup()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.CepLookup().load({"id": "cep_lookup_id"})
+result = client.CepLookup().load()
 ```
 
 ### Common Methods

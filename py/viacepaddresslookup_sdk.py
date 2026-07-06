@@ -221,7 +221,7 @@ class ViacepAddressLookupSDK:
 
 
     def CepLookup(self, data=None) -> "CepLookupEntity":
-        """Entity factory: client.CepLookup().list({}) / client.CepLookup().load({"id": ...})."""
+        """Entity factory: client.CepLookup().list() / client.CepLookup().load({"id": ...})."""
         from entity.cep_lookup_entity import CepLookupEntity
         return CepLookupEntity(self, data)
 

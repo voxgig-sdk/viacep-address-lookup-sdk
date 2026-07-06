@@ -8,7 +8,7 @@ Complete API reference for the ViacepAddressLookup Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'viacep-address-lookup_sdk'
+require_relative 'ViacepAddressLookup_sdk'
 
 client = ViacepAddressLookupSDK.new(options)
 ```
@@ -93,16 +93,16 @@ cep_lookup = client.CepLookup
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bairro` | ``$STRING`` | No |  |
-| `cep` | ``$STRING`` | No |  |
-| `complemento` | ``$STRING`` | No |  |
-| `ddd` | ``$STRING`` | No |  |
-| `gia` | ``$STRING`` | No |  |
-| `ibge` | ``$STRING`` | No |  |
-| `localidade` | ``$STRING`` | No |  |
-| `logradouro` | ``$STRING`` | No |  |
-| `siafi` | ``$STRING`` | No |  |
-| `uf` | ``$STRING`` | No |  |
+| `bairro` | `String` | No |  |
+| `cep` | `String` | No |  |
+| `complemento` | `String` | No |  |
+| `ddd` | `String` | No |  |
+| `gia` | `String` | No |  |
+| `ibge` | `String` | No |  |
+| `localidade` | `String` | No |  |
+| `logradouro` | `String` | No |  |
+| `siafi` | `String` | No |  |
+| `uf` | `String` | No |  |
 
 ### Operations
 
@@ -111,7 +111,7 @@ cep_lookup = client.CepLookup
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.CepLookup.load({ "id" => "cep_lookup_id" })
+result = client.CepLookup.load()
 ```
 
 ### Common Methods

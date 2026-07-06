@@ -97,16 +97,16 @@ cep_lookup := client.CepLookup(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bairro` | ``$STRING`` | No |  |
-| `cep` | ``$STRING`` | No |  |
-| `complemento` | ``$STRING`` | No |  |
-| `ddd` | ``$STRING`` | No |  |
-| `gia` | ``$STRING`` | No |  |
-| `ibge` | ``$STRING`` | No |  |
-| `localidade` | ``$STRING`` | No |  |
-| `logradouro` | ``$STRING`` | No |  |
-| `siafi` | ``$STRING`` | No |  |
-| `uf` | ``$STRING`` | No |  |
+| `bairro` | `string` | No |  |
+| `cep` | `string` | No |  |
+| `complemento` | `string` | No |  |
+| `ddd` | `string` | No |  |
+| `gia` | `string` | No |  |
+| `ibge` | `string` | No |  |
+| `localidade` | `string` | No |  |
+| `logradouro` | `string` | No |  |
+| `siafi` | `string` | No |  |
+| `uf` | `string` | No |  |
 
 ### Operations
 
@@ -115,7 +115,7 @@ cep_lookup := client.CepLookup(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.CepLookup(nil).Load(map[string]any{"id": "cep_lookup_id"}, nil)
+result, err := client.CepLookup(nil).Load(nil, nil)
 ```
 
 ### Common Methods
