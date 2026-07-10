@@ -105,7 +105,7 @@ cep_lookup = client.CepLookup()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.CepLookup().load()
+result = client.CepLookup().load({"cep": "cep"})
 ```
 
 ### Common Methods

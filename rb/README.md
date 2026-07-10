@@ -35,7 +35,7 @@ client = ViacepAddressLookupSDK.new
 ```ruby
 begin
   # load returns the bare CepLookup record (raises on error).
-  ceplookup = client.CepLookup.load()
+  ceplookup = client.CepLookup.load({ "cep" => "example_cep" })
   puts ceplookup
 rescue => err
   warn "load failed: #{err}"
@@ -283,7 +283,7 @@ Create an instance: `cep_lookup = client.CepLookup`
 
 ```ruby
 # load returns the bare CepLookup record (raises on error).
-cep_lookup = client.CepLookup.load()
+cep_lookup = client.CepLookup.load({ "cep" => "cep" })
 ```
 
 

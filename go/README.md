@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single ceplookup — the value is the loaded record.
-    ceplookup, err := client.CepLookup(nil).Load(nil, nil)
+    // Load a single cepLookup — the value is the loaded record.
+    cepLookup, err := client.CepLookup(nil).Load(map[string]any{"cep": "example_cep"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(ceplookup)
+    fmt.Println(cepLookup)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-ceplookup, err := client.CepLookup(nil).Load(
+cepLookup, err := client.CepLookup(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(ceplookup) // the returned mock data
+fmt.Println(cepLookup) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    ceplookup, err := client.CepLookup(nil).Load(nil, nil)
+    cepLookup, err := client.CepLookup(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // ceplookup is the returned record
+    // cepLookup is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -280,7 +280,7 @@ API path: `/{cep}/json`
 
 ### CepLookup
 
-Create an instance: `cep_lookup := client.CepLookup(nil)`
+Create an instance: `cepLookup := client.CepLookup(nil)`
 
 #### Operations
 
@@ -306,11 +306,11 @@ Create an instance: `cep_lookup := client.CepLookup(nil)`
 #### Example: Load
 
 ```go
-cep_lookup, err := client.CepLookup(nil).Load(nil, nil)
+cepLookup, err := client.CepLookup(nil).Load(map[string]any{"cep": "cep"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(cep_lookup) // the loaded record
+fmt.Println(cepLookup) // the loaded record
 ```
 
 

@@ -108,7 +108,7 @@ local cep_lookup = client:CepLookup(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:CepLookup():load()
+local result, err = client:CepLookup():load({ cep = "cep" })
 ```
 
 ### Common Methods

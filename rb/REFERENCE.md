@@ -111,7 +111,7 @@ cep_lookup = client.CepLookup
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.CepLookup.load()
+result = client.CepLookup.load({ "cep" => "cep" })
 ```
 
 ### Common Methods

@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a ceplookup
 
 ```lua
-local ceplookup, err = client:CepLookup():load()
+local ceplookup, err = client:CepLookup():load({ cep = "example_cep" })
 if err then error(err) end
 print(ceplookup)
 ```
@@ -273,7 +273,7 @@ Create an instance: `local cep_lookup = client:CepLookup(nil)`
 #### Example: Load
 
 ```lua
-local cep_lookup, err = client:CepLookup():load()
+local cep_lookup, err = client:CepLookup():load({ cep = "cep" })
 ```
 
 

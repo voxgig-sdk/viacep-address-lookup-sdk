@@ -134,7 +134,7 @@ const cep_lookup = client.CepLookup()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.CepLookup().load()
+const result = await client.CepLookup().load({ cep: 'cep' })
 ```
 
 ### Common Methods

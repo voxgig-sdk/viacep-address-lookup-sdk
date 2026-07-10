@@ -42,7 +42,7 @@ client = ViacepAddressLookupSDK()
 
 ```python
 try:
-    ceplookup = client.CepLookup().load()
+    ceplookup = client.CepLookup().load({"cep": "example_cep"})
     print(ceplookup)
 except Exception as err:
     print(f"load failed: {err}")
@@ -288,7 +288,7 @@ Create an instance: `cep_lookup = client.CepLookup()`
 #### Example: Load
 
 ```python
-cep_lookup = client.CepLookup().load()
+cep_lookup = client.CepLookup().load({"cep": "cep"})
 ```
 
 

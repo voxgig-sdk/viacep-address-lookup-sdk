@@ -39,7 +39,7 @@ const client = new ViacepAddressLookupSDK()
 
 ```ts
 try {
-  const ceplookup = await client.CepLookup().load()
+  const ceplookup = await client.CepLookup().load({ cep: 'example_cep' })
   console.log(ceplookup)
 } catch (err) {
   console.error('load failed:', err)
@@ -332,7 +332,7 @@ Create an instance: `const cep_lookup = client.CepLookup()`
 #### Example: Load
 
 ```ts
-const cep_lookup = await client.CepLookup().load()
+const cep_lookup = await client.CepLookup().load({ cep: 'cep' })
 ```
 
 

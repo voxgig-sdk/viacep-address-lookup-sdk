@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -298,14 +295,17 @@
           "url": "https://viacep.com.br/"
         },
         "description": "ViaCEP is a free web service that allows users to query Brazilian postal codes (CEPs) and retrieve address information in JSON or XML format. The service supports AJAX requests and facilitates easy integration for address autofill and validation in applications.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://viacep.com.br/ws"
           }
         ],
+        "summary": "ViaCEP is a free web service that allows users to query Brazilian postal codes (CEPs) and retrieve address information in JSON or XML format.",
         "title": "ViaCEP Address Lookup",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://viacep.com.br"
       },
       "option": {},
       "target": {
@@ -358,6 +358,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -408,6 +411,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

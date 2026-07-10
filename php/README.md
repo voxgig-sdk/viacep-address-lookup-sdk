@@ -36,7 +36,7 @@ $client = new ViacepAddressLookupSDK();
 ```php
 try {
     // load() returns the bare CepLookup record (throws on error).
-    $ceplookup = $client->CepLookup()->load();
+    $ceplookup = $client->CepLookup()->load(["cep" => "example_cep"]);
     print_r($ceplookup);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -293,7 +293,7 @@ Create an instance: `$cep_lookup = $client->CepLookup();`
 
 ```php
 // load() returns the bare CepLookup record (throws on error).
-$cep_lookup = $client->CepLookup()->load();
+$cep_lookup = $client->CepLookup()->load(["cep" => "cep"]);
 ```
 
 

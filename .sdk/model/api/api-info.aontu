@@ -15,9 +15,9 @@ main: {
           url: "https://viacep.com.br/ws"
         }
       ]
+      summary: "ViaCEP is a free web service that allows users to query Brazilian postal codes (CEPs) and retrieve address information in JSON or XML format."
       title: "ViaCEP Address Lookup"
       version: "1.0.0"
+      website: "https://viacep.com.br"
     }
   }
-}
-

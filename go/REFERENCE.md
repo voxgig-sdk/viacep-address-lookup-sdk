@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## CepLookupEntity
 
 ```go
-cep_lookup := client.CepLookup(nil)
+cepLookup := client.CepLookup(nil)
+fmt.Println(cepLookup.GetName()) // "cep_lookup"
 ```
 
 ### Fields
@@ -115,7 +116,11 @@ cep_lookup := client.CepLookup(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.CepLookup(nil).Load(nil, nil)
+result, err := client.CepLookup(nil).Load(map[string]any{"cep": "cep"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
