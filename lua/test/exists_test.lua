@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- ViacepAddressLookup SDK exists test
 
 local sdk = require("viacep-address-lookup_sdk")
 
