@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'ViacepAddressLookup',
   }
 
 
@@ -147,6 +147,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/{cep}/json",
               "parts": [
@@ -180,6 +181,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/{cep}/xml",
               "parts": [

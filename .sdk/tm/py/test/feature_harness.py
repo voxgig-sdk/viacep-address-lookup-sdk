@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import ViacepAddressLookupControl
-from core.error import ViacepAddressLookupError
-from core.result import ViacepAddressLookupResult
-from core.spec import ViacepAddressLookupSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import ViacepAddressLookupControl
+from projectname_sdk.core.error import ViacepAddressLookupError
+from projectname_sdk.core.result import ViacepAddressLookupResult
+from projectname_sdk.core.spec import ViacepAddressLookupSpec
 
 
 # True when this SDK was generated with the named feature.

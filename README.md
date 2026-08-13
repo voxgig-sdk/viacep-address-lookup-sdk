@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new ViacepAddressLookupSDK()
-const ceplookup = await client.CepLookup().load()
+const ceplookup = await client.CepLookup().load({ cep: "example" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = ViacepAddressLookupSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = ViacepAddressLookupSDK.test({
+  entity: {
+    cep_lookup: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const ceplookup = await client.CepLookup().load({ cep: 'example_cep' })
-// ceplookup is a bare CepLookup populated with mock data
+// ceplookup is the CepLookup entity, populated with mock data
+// — call ceplookup.data() for the record itself
 console.log(ceplookup)
 ```
 
@@ -182,7 +191,7 @@ require_once 'viacepaddresslookup_sdk.php';
 $client = new ViacepAddressLookupSDK();
 
 
-// Load a specific ceplookup (returns the bare record; throws on error)
+// Load a specific ceplookup (returns the ENTITY; call data_get() for the record; throws on error)
 $ceplookup = $client->CepLookup()->load(["cep" => "example_cep"]);
 print_r($ceplookup);
 ```
@@ -210,7 +219,7 @@ require_relative "ViacepAddressLookup_sdk"
 client = ViacepAddressLookupSDK.new
 
 
-# Load a specific ceplookup (returns the bare record; raises on error)
+# Load a specific ceplookup (returns the ENTITY; call data_get for the record)
 ceplookup = client.CepLookup.load({ "cep" => "example_cep" })
 puts ceplookup
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://viacep.com.br/](https://viacep.com.br/)
 

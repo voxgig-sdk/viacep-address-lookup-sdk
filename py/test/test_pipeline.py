@@ -16,11 +16,11 @@
 import pytest
 
 from viacepaddresslookup_sdk import ViacepAddressLookupSDK
-from core.error import ViacepAddressLookupError
-from core.result import ViacepAddressLookupResult
-from core.response import ViacepAddressLookupResponse
-from core.spec import ViacepAddressLookupSpec
-from feature.base_feature import ViacepAddressLookupBaseFeature
+from viacepaddresslookup_sdk.core.error import ViacepAddressLookupError
+from viacepaddresslookup_sdk.core.result import ViacepAddressLookupResult
+from viacepaddresslookup_sdk.core.response import ViacepAddressLookupResponse
+from viacepaddresslookup_sdk.core.spec import ViacepAddressLookupSpec
+from viacepaddresslookup_sdk.feature.base_feature import ViacepAddressLookupBaseFeature
 
 
 def _client():

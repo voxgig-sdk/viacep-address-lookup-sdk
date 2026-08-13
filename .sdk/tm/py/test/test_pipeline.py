@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import ViacepAddressLookupSDK
-from core.error import ViacepAddressLookupError
-from core.result import ViacepAddressLookupResult
-from core.response import ViacepAddressLookupResponse
-from core.spec import ViacepAddressLookupSpec
-from feature.base_feature import ViacepAddressLookupBaseFeature
+from projectname_sdk.core.error import ViacepAddressLookupError
+from projectname_sdk.core.result import ViacepAddressLookupResult
+from projectname_sdk.core.response import ViacepAddressLookupResponse
+from projectname_sdk.core.spec import ViacepAddressLookupSpec
+from projectname_sdk.feature.base_feature import ViacepAddressLookupBaseFeature
 
 
 def _client():

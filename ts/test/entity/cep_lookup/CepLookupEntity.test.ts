@@ -26,8 +26,8 @@ import {
 describe('CepLookupEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when VIACEPADDRESSLOOKUP_TEST_LIVE=TRUE.
-  afterEach(liveDelay('VIACEPADDRESSLOOKUP_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when VIACEP_ADDRESS_LOOKUP_TEST_LIVE=TRUE.
+  afterEach(liveDelay('VIACEP_ADDRESS_LOOKUP_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = ViacepAddressLookupSDK.test()

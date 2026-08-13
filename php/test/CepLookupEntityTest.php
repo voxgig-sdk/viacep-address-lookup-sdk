@@ -33,7 +33,7 @@ class CepLookupEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -77,22 +77,22 @@ function cep_lookup_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID");
+    $entid_env_raw = getenv("VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID" => $idmap,
-        "VIACEPADDRESSLOOKUP_TEST_LIVE" => "FALSE",
-        "VIACEPADDRESSLOOKUP_TEST_EXPLAIN" => "FALSE",
+        "VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID" => $idmap,
+        "VIACEP_ADDRESS_LOOKUP_TEST_LIVE" => "FALSE",
+        "VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID"]);
+        $env["VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["VIACEPADDRESSLOOKUP_TEST_LIVE"] === "TRUE") {
+    if ($env["VIACEP_ADDRESS_LOOKUP_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -101,13 +101,13 @@ function cep_lookup_basic_setup($extra)
         $client = new ViacepAddressLookupSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["VIACEPADDRESSLOOKUP_TEST_LIVE"] === "TRUE";
+    $live = $env["VIACEP_ADDRESS_LOOKUP_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["VIACEPADDRESSLOOKUP_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

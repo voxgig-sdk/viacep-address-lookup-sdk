@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const ceplookup = await client.CepLookup().load()
+  const ceplookup = await client.CepLookup().load({ cep: "example" })
   console.log(ceplookup)
 } catch (err) {
   console.error('load failed:', err)
@@ -120,8 +120,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = ViacepAddressLookupSDK.test()
 
-const ceplookup = await client.CepLookup().load()
-// ceplookup is a bare entity populated with mock response data
+const ceplookup = await client.CepLookup().load({ cep: 'example_cep' })
+// ceplookup is the entity, populated with mock response data
+// — call ceplookup.data() for the record itself
 console.log(ceplookup)
 ```
 
@@ -140,7 +141,7 @@ Entity instances remember their last match and data:
 const entity = client.CepLookup()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ cep: 'example_cep' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -406,7 +407,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const ceplookup = client.CepLookup()
-await ceplookup.load()
+await ceplookup.load({ cep: "example" })
 
 // ceplookup.data() now returns the ceplookup data from the last `load`
 // ceplookup.match() returns the last match criteria

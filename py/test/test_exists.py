@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# ViacepAddressLookup SDK exists test
 
 import pytest
 from viacepaddresslookup_sdk import ViacepAddressLookupSDK

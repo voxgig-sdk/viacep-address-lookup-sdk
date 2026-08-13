@@ -19,11 +19,15 @@ import {
 describe('CepLookupDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when VIACEPADDRESSLOOKUP_TEST_LIVE=TRUE.
-  afterEach(liveDelay('VIACEPADDRESSLOOKUP_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when VIACEP_ADDRESS_LOOKUP_TEST_LIVE=TRUE.
+  afterEach(liveDelay('VIACEP_ADDRESS_LOOKUP_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new ViacepAddressLookupSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID': {},
-    'VIACEPADDRESSLOOKUP_TEST_LIVE': 'FALSE',
+    'VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID': {},
+    'VIACEP_ADDRESS_LOOKUP_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.VIACEPADDRESSLOOKUP_TEST_LIVE
+  const live = 'TRUE' === env.VIACEP_ADDRESS_LOOKUP_TEST_LIVE
 
   if (live) {
     const client = new ViacepAddressLookupSDK({
     })
 
-    let idmap: any = env['VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID']
+    let idmap: any = env['VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

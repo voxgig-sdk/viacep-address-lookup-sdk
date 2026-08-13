@@ -123,6 +123,7 @@ class ViacepAddressLookupConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{cep}/json',
                   'parts' => [
@@ -156,6 +157,7 @@ class ViacepAddressLookupConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/{cep}/xml',
                   'parts' => [

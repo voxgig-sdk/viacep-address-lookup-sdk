@@ -35,7 +35,7 @@ $client = new ViacepAddressLookupSDK();
 
 ```php
 try {
-    // load() returns the bare CepLookup record (throws on error).
+    // load() returns the ENTITY — call data_get() for the CepLookup record (throws on error).
     $ceplookup = $client->CepLookup()->load(["cep" => "example_cep"]);
     print_r($ceplookup);
 } catch (\Throwable $err) {
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $ceplookup = $client->CepLookup()->load();
+    $ceplookup = $client->CepLookup()->load(["cep" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -123,8 +123,9 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = ViacepAddressLookupSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$ceplookup = $client->CepLookup()->load();
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$ceplookup = $client->CepLookup()->load(["cep" => "example"]);
 print_r($ceplookup);
 ```
 
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -292,7 +293,7 @@ Create an instance: `$cep_lookup = $client->CepLookup();`
 #### Example: Load
 
 ```php
-// load() returns the bare CepLookup record (throws on error).
+// load() returns the ENTITY — call data_get() for the CepLookup record (throws on error).
 $cep_lookup = $client->CepLookup()->load(["cep" => "cep"]);
 ```
 
@@ -374,7 +375,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $ceplookup = $client->CepLookup();
-$ceplookup->load();
+$ceplookup->load(["cep" => "example"]);
 
 // $ceplookup->data_get() now returns the ceplookup data from the last load
 // $ceplookup->match_get() returns the last match criteria

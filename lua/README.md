@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local ceplookup, err = client:CepLookup():load()
+local ceplookup, err = client:CepLookup():load({ cep = "example" })
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:CepLookup():load()
+local result, err = client:CepLookup():load({ cep = "example" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -354,7 +354,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local ceplookup = client:CepLookup()
-ceplookup:load()
+ceplookup:load({ cep = "example" })
 
 -- ceplookup:data_get() now returns the ceplookup data from the last load
 -- ceplookup:match_get() returns the last match criteria

@@ -118,6 +118,7 @@ module ViacepAddressLookupConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{cep}/json",
                   "parts" => [
@@ -151,6 +152,7 @@ module ViacepAddressLookupConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{cep}/xml",
                   "parts" => [

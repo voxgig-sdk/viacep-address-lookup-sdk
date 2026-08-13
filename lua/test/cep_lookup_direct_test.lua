@@ -68,11 +68,11 @@ function cep_lookup_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID"] = {},
-    ["VIACEPADDRESSLOOKUP_TEST_LIVE"] = "FALSE",
+    ["VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID"] = {},
+    ["VIACEP_ADDRESS_LOOKUP_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["VIACEPADDRESSLOOKUP_TEST_LIVE"] == "TRUE"
+  local live = env["VIACEP_ADDRESS_LOOKUP_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

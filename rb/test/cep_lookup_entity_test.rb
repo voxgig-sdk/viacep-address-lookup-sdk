@@ -26,7 +26,7 @@ class CepLookupEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -74,22 +74,22 @@ def cep_lookup_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID"]
+  entid_env_raw = ENV["VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID" => idmap,
-    "VIACEPADDRESSLOOKUP_TEST_LIVE" => "FALSE",
-    "VIACEPADDRESSLOOKUP_TEST_EXPLAIN" => "FALSE",
+    "VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID" => idmap,
+    "VIACEP_ADDRESS_LOOKUP_TEST_LIVE" => "FALSE",
+    "VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID"])
+    env["VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["VIACEPADDRESSLOOKUP_TEST_LIVE"] == "TRUE"
+  if env["VIACEP_ADDRESS_LOOKUP_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -98,13 +98,13 @@ def cep_lookup_basic_setup(extra)
     client = ViacepAddressLookupSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["VIACEPADDRESSLOOKUP_TEST_LIVE"] == "TRUE"
+  live = env["VIACEP_ADDRESS_LOOKUP_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["VIACEPADDRESSLOOKUP_TEST_EXPLAIN"] == "TRUE",
+    explain: env["VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ ViacepAddressLookupUtility::setRegistrar(function (ViacepAddressLookupUtility $u
     $u->prepare_params = [ViacepAddressLookupPrepareParams::class, 'call'];
     $u->prepare_path = [ViacepAddressLookupPreparePath::class, 'call'];
     $u->prepare_query = [ViacepAddressLookupPrepareQuery::class, 'call'];
+    $u->graphql_body = [ViacepAddressLookupGraphql::class, 'body'];
+    $u->graphql_errors = [ViacepAddressLookupGraphql::class, 'errors'];
     $u->result_basic = [ViacepAddressLookupResultBasic::class, 'call'];
     $u->result_body = [ViacepAddressLookupResultBody::class, 'call'];
     $u->result_headers = [ViacepAddressLookupResultHeaders::class, 'call'];

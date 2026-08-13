@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from viacepaddresslookup_sdk.utility.voxgig_struct import voxgig_struct as vs
 from viacepaddresslookup_sdk import ViacepAddressLookupSDK
-from core import helpers
+from viacepaddresslookup_sdk.core import helpers
 from test import runner
 
 
@@ -63,11 +63,11 @@ def _cep_lookup_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "VIACEPADDRESSLOOKUP_TEST_CEP_LOOKUP_ENTID": {},
-        "VIACEPADDRESSLOOKUP_TEST_LIVE": "FALSE",
+        "VIACEP_ADDRESS_LOOKUP_TEST_CEP_LOOKUP_ENTID": {},
+        "VIACEP_ADDRESS_LOOKUP_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("VIACEPADDRESSLOOKUP_TEST_LIVE") == "TRUE"
+    live = env.get("VIACEP_ADDRESS_LOOKUP_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

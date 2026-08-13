@@ -34,7 +34,7 @@ client = ViacepAddressLookupSDK.new
 
 ```ruby
 begin
-  # load returns the bare CepLookup record (raises on error).
+  # load returns the ENTITY — call data_get for the CepLookup record (raises on error).
   ceplookup = client.CepLookup.load({ "cep" => "example_cep" })
   puts ceplookup
 rescue => err
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  ceplookup = client.CepLookup.load()
+  ceplookup = client.CepLookup.load({ "cep" => "example" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -117,8 +117,9 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = ViacepAddressLookupSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-ceplookup = client.CepLookup.load()
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+ceplookup = client.CepLookup.load({ "cep" => "example" })
 puts ceplookup
 ```
 
@@ -282,7 +283,7 @@ Create an instance: `cep_lookup = client.CepLookup`
 #### Example: Load
 
 ```ruby
-# load returns the bare CepLookup record (raises on error).
+# load returns the ENTITY — call data_get for the CepLookup record (raises on error).
 cep_lookup = client.CepLookup.load({ "cep" => "cep" })
 ```
 
@@ -364,7 +365,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 ceplookup = client.CepLookup
-ceplookup.load()
+ceplookup.load({ "cep" => "example" })
 
 # ceplookup.data_get now returns the ceplookup data from the last load
 # ceplookup.match_get returns the last match criteria

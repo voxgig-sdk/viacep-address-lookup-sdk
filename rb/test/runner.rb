@@ -23,8 +23,8 @@ module ViacepAddressLookupTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("VIACEPADDRESSLOOKUP_TEST_LIVE")
-    override = getenv("VIACEPADDRESSLOOKUP_TEST_OVERRIDE")
+    live = getenv("VIACEP_ADDRESS_LOOKUP_TEST_LIVE")
+    override = getenv("VIACEP_ADDRESS_LOOKUP_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module ViacepAddressLookupTestRunner
       end
     end
 
-    explain = getenv("VIACEPADDRESSLOOKUP_TEST_EXPLAIN")
-    m["VIACEPADDRESSLOOKUP_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN")
+    m["VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

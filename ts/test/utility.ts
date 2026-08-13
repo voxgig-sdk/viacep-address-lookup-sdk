@@ -62,8 +62,8 @@ function makeCtrl(explain: boolean) {
 // Overrides configuration values with environment variables if available
 function envOverride(m: Record<string, any>) {
   if (
-    'TRUE' === process.env.VIACEPADDRESSLOOKUP_TEST_LIVE ||
-    'TRUE' === process.env.VIACEPADDRESSLOOKUP_TEST_OVERRIDE
+    'TRUE' === process.env.VIACEP_ADDRESS_LOOKUP_TEST_LIVE ||
+    'TRUE' === process.env.VIACEP_ADDRESS_LOOKUP_TEST_OVERRIDE
   ) {
     Object.entries(m).map(n => {
       let envval = process.env[n[0]]
@@ -74,7 +74,7 @@ function envOverride(m: Record<string, any>) {
     })
   }
 
-  m.VIACEPADDRESSLOOKUP_TEST_EXPLAIN = process.env.VIACEPADDRESSLOOKUP_TEST_EXPLAIN || m.VIACEPADDRESSLOOKUP_TEST_EXPLAIN
+  m.VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN = process.env.VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN || m.VIACEP_ADDRESS_LOOKUP_TEST_EXPLAIN
 
   return m
 }

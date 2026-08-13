@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ ViacepAddressLookupUtility.registrar = ->(u) {
   u.prepare_params = ViacepAddressLookupUtilities::PrepareParams
   u.prepare_path = ViacepAddressLookupUtilities::PreparePath
   u.prepare_query = ViacepAddressLookupUtilities::PrepareQuery
+  u.graphql_body = ViacepAddressLookupUtilities::GraphqlBody
+  u.graphql_errors = ViacepAddressLookupUtilities::GraphqlErrors
   u.result_basic = ViacepAddressLookupUtilities::ResultBasic
   u.result_body = ViacepAddressLookupUtilities::ResultBody
   u.result_headers = ViacepAddressLookupUtilities::ResultHeaders

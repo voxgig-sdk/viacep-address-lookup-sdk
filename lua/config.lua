@@ -117,6 +117,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{cep}/json",
                 ["parts"] = {
@@ -150,6 +151,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{cep}/xml",
                 ["parts"] = {

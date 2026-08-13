@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-ceplookup, err := client.CepLookup(nil).Load(nil, nil)
+ceplookup, err := client.CepLookup(nil).Load(map[string]any{"cep": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 cepLookup, err := client.CepLookup(nil).Load(
-    nil, nil,
+    map[string]any{"cep": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -388,7 +388,7 @@ stores the returned data and match criteria internally.
 
 ```go
 ceplookup := client.CepLookup(nil)
-ceplookup.Load(nil, nil)
+ceplookup.Load(map[string]any{"cep": "example"}, nil)
 
 // ceplookup.Data() now returns the ceplookup data from the last load
 // ceplookup.Match() returns the last match criteria
