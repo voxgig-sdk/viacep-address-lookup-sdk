@@ -40,7 +40,7 @@ class ViacepAddressLookupSDK
         $utility = new ViacepAddressLookupUtility();
         $this->_utility = $utility;
 
-        $config = ViacepAddressLookupConfig::make_config();
+        $config = ViacepAddressLookupConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

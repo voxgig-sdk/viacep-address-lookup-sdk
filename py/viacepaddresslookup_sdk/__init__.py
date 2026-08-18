@@ -23,8 +23,8 @@ class ViacepAddressLookupSDK:
         utility = ViacepAddressLookupUtility()
         self._utility = utility
 
-        from viacepaddresslookup_sdk.config import make_config
-        config = make_config()
+        from viacepaddresslookup_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

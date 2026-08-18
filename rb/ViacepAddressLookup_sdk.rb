@@ -28,7 +28,7 @@ class ViacepAddressLookupSDK
     utility = ViacepAddressLookupUtility.new
     @_utility = utility
 
-    config = ViacepAddressLookupConfig.make_config
+    config = ViacepAddressLookupConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
