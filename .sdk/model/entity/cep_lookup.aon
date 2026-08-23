@@ -8,51 +8,61 @@ main: kit: entity: cep_lookup: {
     {
       name: "bairro"
       req: false
+      short: "Neighborhood"
       type: "`$STRING`"
     }
     {
       name: "cep"
       req: false
+      short: "Postal code (CEP) in formatted style"
       type: "`$STRING`"
     }
     {
       name: "complemento"
       req: false
+      short: "Additional address information"
       type: "`$STRING`"
     }
     {
       name: "ddd"
       req: false
+      short: "Area code (DDD)"
       type: "`$STRING`"
     }
     {
       name: "gia"
       req: false
+      short: "GIA code (São Paulo state)"
       type: "`$STRING`"
     }
     {
       name: "ibge"
       req: false
+      short: "IBGE city code"
       type: "`$STRING`"
     }
     {
       name: "localidade"
       req: false
+      short: "City name"
       type: "`$STRING`"
     }
     {
       name: "logradouro"
       req: false
+      short: "Street name"
       type: "`$STRING`"
     }
     {
       name: "siafi"
       req: false
+      short: "SIAFI code"
       type: "`$STRING`"
     }
     {
       name: "uf"
       req: false
+      short: "State abbreviation"
       type: "`$STRING`"
     }
   ]

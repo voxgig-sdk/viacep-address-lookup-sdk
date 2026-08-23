@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "ViacepAddressLookup",
+			"slug": "viacep-address-lookup",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,42 +36,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "bairro",
+						"short": "Neighborhood",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cep",
+						"short": "Postal code (CEP) in formatted style",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "complemento",
+						"short": "Additional address information",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ddd",
+						"short": "Area code (DDD)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "gia",
+						"short": "GIA code (São Paulo state)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ibge",
+						"short": "IBGE city code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "localidade",
+						"short": "City name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "logradouro",
+						"short": "Street name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "siafi",
+						"short": "SIAFI code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "uf",
+						"short": "State abbreviation",
 						"type": "`$STRING`",
 					},
 				},

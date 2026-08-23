@@ -245,16 +245,16 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `bairro` |  |
-| `cep` |  |
-| `complemento` |  |
-| `ddd` |  |
-| `gia` |  |
-| `ibge` |  |
-| `localidade` |  |
-| `logradouro` |  |
-| `siafi` |  |
-| `uf` |  |
+| `bairro` | Neighborhood |
+| `cep` | Postal code (CEP) in formatted style |
+| `complemento` | Additional address information |
+| `ddd` | Area code (DDD) |
+| `gia` | GIA code (São Paulo state) |
+| `ibge` | IBGE city code |
+| `localidade` | City name |
+| `logradouro` | Street name |
+| `siafi` | SIAFI code |
+| `uf` | State abbreviation |
 
 Operations: Load.
 
@@ -279,16 +279,16 @@ Create an instance: `$cep_lookup = $client->CepLookup();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `bairro` | `string` |  |
-| `cep` | `string` |  |
-| `complemento` | `string` |  |
-| `ddd` | `string` |  |
-| `gia` | `string` |  |
-| `ibge` | `string` |  |
-| `localidade` | `string` |  |
-| `logradouro` | `string` |  |
-| `siafi` | `string` |  |
-| `uf` | `string` |  |
+| `bairro` | `string` | Neighborhood |
+| `cep` | `string` | Postal code (CEP) in formatted style |
+| `complemento` | `string` | Additional address information |
+| `ddd` | `string` | Area code (DDD) |
+| `gia` | `string` | GIA code (São Paulo state) |
+| `ibge` | `string` | IBGE city code |
+| `localidade` | `string` | City name |
+| `logradouro` | `string` | Street name |
+| `siafi` | `string` | SIAFI code |
+| `uf` | `string` | State abbreviation |
 
 #### Example: Load
 

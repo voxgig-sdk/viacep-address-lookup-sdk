@@ -235,16 +235,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `bairro` |  |
-| `cep` |  |
-| `complemento` |  |
-| `ddd` |  |
-| `gia` |  |
-| `ibge` |  |
-| `localidade` |  |
-| `logradouro` |  |
-| `siafi` |  |
-| `uf` |  |
+| `bairro` | Neighborhood |
+| `cep` | Postal code (CEP) in formatted style |
+| `complemento` | Additional address information |
+| `ddd` | Area code (DDD) |
+| `gia` | GIA code (São Paulo state) |
+| `ibge` | IBGE city code |
+| `localidade` | City name |
+| `logradouro` | Street name |
+| `siafi` | SIAFI code |
+| `uf` | State abbreviation |
 
 Operations: Load.
 
@@ -269,16 +269,16 @@ Create an instance: `cep_lookup = client.CepLookup`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `bairro` | `String` |  |
-| `cep` | `String` |  |
-| `complemento` | `String` |  |
-| `ddd` | `String` |  |
-| `gia` | `String` |  |
-| `ibge` | `String` |  |
-| `localidade` | `String` |  |
-| `logradouro` | `String` |  |
-| `siafi` | `String` |  |
-| `uf` | `String` |  |
+| `bairro` | `String` | Neighborhood |
+| `cep` | `String` | Postal code (CEP) in formatted style |
+| `complemento` | `String` | Additional address information |
+| `ddd` | `String` | Area code (DDD) |
+| `gia` | `String` | GIA code (São Paulo state) |
+| `ibge` | `String` | IBGE city code |
+| `localidade` | `String` | City name |
+| `logradouro` | `String` | Street name |
+| `siafi` | `String` | SIAFI code |
+| `uf` | `String` | State abbreviation |
 
 #### Example: Load
 

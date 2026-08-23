@@ -87,16 +87,16 @@ cep_lookup = client.CepLookup()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bairro` | `str` | No |  |
-| `cep` | `str` | No |  |
-| `complemento` | `str` | No |  |
-| `ddd` | `str` | No |  |
-| `gia` | `str` | No |  |
-| `ibge` | `str` | No |  |
-| `localidade` | `str` | No |  |
-| `logradouro` | `str` | No |  |
-| `siafi` | `str` | No |  |
-| `uf` | `str` | No |  |
+| `bairro` | `str` | No | Neighborhood |
+| `cep` | `str` | No | Postal code (CEP) in formatted style |
+| `complemento` | `str` | No | Additional address information |
+| `ddd` | `str` | No | Area code (DDD) |
+| `gia` | `str` | No | GIA code (São Paulo state) |
+| `ibge` | `str` | No | IBGE city code |
+| `localidade` | `str` | No | City name |
+| `logradouro` | `str` | No | Street name |
+| `siafi` | `str` | No | SIAFI code |
+| `uf` | `str` | No | State abbreviation |
 
 ### Operations
 

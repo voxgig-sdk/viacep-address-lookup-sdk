@@ -92,16 +92,16 @@ $cep_lookup = $client->CepLookup();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `bairro` | `string` | No |  |
-| `cep` | `string` | No |  |
-| `complemento` | `string` | No |  |
-| `ddd` | `string` | No |  |
-| `gia` | `string` | No |  |
-| `ibge` | `string` | No |  |
-| `localidade` | `string` | No |  |
-| `logradouro` | `string` | No |  |
-| `siafi` | `string` | No |  |
-| `uf` | `string` | No |  |
+| `bairro` | `string` | No | Neighborhood |
+| `cep` | `string` | No | Postal code (CEP) in formatted style |
+| `complemento` | `string` | No | Additional address information |
+| `ddd` | `string` | No | Area code (DDD) |
+| `gia` | `string` | No | GIA code (São Paulo state) |
+| `ibge` | `string` | No | IBGE city code |
+| `localidade` | `string` | No | City name |
+| `logradouro` | `string` | No | Street name |
+| `siafi` | `string` | No | SIAFI code |
+| `uf` | `string` | No | State abbreviation |
 
 ### Operations
 

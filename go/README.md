@@ -6,7 +6,7 @@ The Golang SDK for the ViacepAddressLookup API — an entity-oriented client usi
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.CepLookup(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,16 +258,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"bairro"` |  |
-| `"cep"` |  |
-| `"complemento"` |  |
-| `"ddd"` |  |
-| `"gia"` |  |
-| `"ibge"` |  |
-| `"localidade"` |  |
-| `"logradouro"` |  |
-| `"siafi"` |  |
-| `"uf"` |  |
+| `"bairro"` | Neighborhood |
+| `"cep"` | Postal code (CEP) in formatted style |
+| `"complemento"` | Additional address information |
+| `"ddd"` | Area code (DDD) |
+| `"gia"` | GIA code (São Paulo state) |
+| `"ibge"` | IBGE city code |
+| `"localidade"` | City name |
+| `"logradouro"` | Street name |
+| `"siafi"` | SIAFI code |
+| `"uf"` | State abbreviation |
 
 Operations: Load.
 
@@ -292,16 +292,16 @@ Create an instance: `cepLookup := client.CepLookup(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `bairro` | `string` |  |
-| `cep` | `string` |  |
-| `complemento` | `string` |  |
-| `ddd` | `string` |  |
-| `gia` | `string` |  |
-| `ibge` | `string` |  |
-| `localidade` | `string` |  |
-| `logradouro` | `string` |  |
-| `siafi` | `string` |  |
-| `uf` | `string` |  |
+| `bairro` | `string` | Neighborhood |
+| `cep` | `string` | Postal code (CEP) in formatted style |
+| `complemento` | `string` | Additional address information |
+| `ddd` | `string` | Area code (DDD) |
+| `gia` | `string` | GIA code (São Paulo state) |
+| `ibge` | `string` | IBGE city code |
+| `localidade` | `string` | City name |
+| `logradouro` | `string` | Street name |
+| `siafi` | `string` | SIAFI code |
+| `uf` | `string` | State abbreviation |
 
 #### Example: Load
 

@@ -241,16 +241,16 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `bairro` |  |
-| `cep` |  |
-| `complemento` |  |
-| `ddd` |  |
-| `gia` |  |
-| `ibge` |  |
-| `localidade` |  |
-| `logradouro` |  |
-| `siafi` |  |
-| `uf` |  |
+| `bairro` | Neighborhood |
+| `cep` | Postal code (CEP) in formatted style |
+| `complemento` | Additional address information |
+| `ddd` | Area code (DDD) |
+| `gia` | GIA code (São Paulo state) |
+| `ibge` | IBGE city code |
+| `localidade` | City name |
+| `logradouro` | Street name |
+| `siafi` | SIAFI code |
+| `uf` | State abbreviation |
 
 Operations: Load.
 
@@ -275,16 +275,16 @@ Create an instance: `cep_lookup = client.CepLookup()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `bairro` | `str` |  |
-| `cep` | `str` |  |
-| `complemento` | `str` |  |
-| `ddd` | `str` |  |
-| `gia` | `str` |  |
-| `ibge` | `str` |  |
-| `localidade` | `str` |  |
-| `logradouro` | `str` |  |
-| `siafi` | `str` |  |
-| `uf` | `str` |  |
+| `bairro` | `str` | Neighborhood |
+| `cep` | `str` | Postal code (CEP) in formatted style |
+| `complemento` | `str` | Additional address information |
+| `ddd` | `str` | Area code (DDD) |
+| `gia` | `str` | GIA code (São Paulo state) |
+| `ibge` | `str` | IBGE city code |
+| `localidade` | `str` | City name |
+| `logradouro` | `str` | Street name |
+| `siafi` | `str` | SIAFI code |
+| `uf` | `str` | State abbreviation |
 
 #### Example: Load
 
