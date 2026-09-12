@@ -104,9 +104,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{cep}/json",
-                ["parts"] = {
-                  "{cep}",
-                  "json",
+                ["segments"] = {
+                  {
+                    ["var"] = "cep",
+                  },
+                  {
+                    ["lit"] = "json",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -116,6 +120,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "{cep}",
+                  "json",
                 },
               },
               {
@@ -134,9 +142,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/{cep}/xml",
-                ["parts"] = {
-                  "{cep}",
-                  "xml",
+                ["segments"] = {
+                  {
+                    ["var"] = "cep",
+                  },
+                  {
+                    ["lit"] = "xml",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -146,6 +158,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "{cep}",
+                  "xml",
                 },
               },
             },
