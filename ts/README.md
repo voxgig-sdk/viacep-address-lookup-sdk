@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { ViacepAddressLookupSDK } from '@voxgig-sdk/viacep-address-lookup'
+import { ViacepAddressLookupSDK } from '@voxgig-sdk/viacep-address-lookup-sdk'
 
 const client = new ViacepAddressLookupSDK()
 ```
@@ -419,7 +419,7 @@ viacep-address-lookup/
 Import the SDK from the package root:
 
 ```ts
-import { ViacepAddressLookupSDK } from '@voxgig-sdk/viacep-address-lookup'
+import { ViacepAddressLookupSDK } from '@voxgig-sdk/viacep-address-lookup-sdk'
 ```
 
 ### Entity state

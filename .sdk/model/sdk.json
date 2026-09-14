@@ -902,7 +902,7 @@
             "registry": {
               "active": false,
               "name": "npm",
-              "package": "",
+              "package": "@voxgig-sdk/viacep-address-lookup-sdk",
               "state": "pending",
               "url": "https://registry.npmjs.org",
               "vault": {

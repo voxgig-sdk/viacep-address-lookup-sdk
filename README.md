@@ -105,7 +105,7 @@ local result, err = client:CepLookup():load({ cep = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
+| TypeScript | `@voxgig-sdk/viacep-address-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
 | Python | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
 | PHP | `voxgig-sdk/viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/viacep-address-lookup-sdk/go` | `go get github.com/voxgig-sdk/viacep-address-lookup-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:CepLookup():load({ cep = "example" })
 ### TypeScript
 
 ```ts
-import { ViacepAddressLookupSDK } from '@voxgig-sdk/viacep-address-lookup'
+import { ViacepAddressLookupSDK } from '@voxgig-sdk/viacep-address-lookup-sdk'
 
 const client = new ViacepAddressLookupSDK()
 
