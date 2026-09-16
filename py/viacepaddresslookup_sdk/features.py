@@ -1,12 +1,18 @@
 # ViacepAddressLookup SDK feature factory
 
 from viacepaddresslookup_sdk.feature.base_feature import ViacepAddressLookupBaseFeature
+from viacepaddresslookup_sdk.feature.ratelimit_feature import ViacepAddressLookupRatelimitFeature
+from viacepaddresslookup_sdk.feature.retry_feature import ViacepAddressLookupRetryFeature
 from viacepaddresslookup_sdk.feature.test_feature import ViacepAddressLookupTestFeature
+from viacepaddresslookup_sdk.feature.timeout_feature import ViacepAddressLookupTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: ViacepAddressLookupBaseFeature(),
+    "ratelimit": lambda: ViacepAddressLookupRatelimitFeature(),
+    "retry": lambda: ViacepAddressLookupRetryFeature(),
     "test": lambda: ViacepAddressLookupTestFeature(),
+    "timeout": lambda: ViacepAddressLookupTimeoutFeature(),
 }
 
 
