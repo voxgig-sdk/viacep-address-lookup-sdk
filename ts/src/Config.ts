@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      cep_lookup: {
-      },
-
+        cep_lookup: {
+        },
+  
     }
   }
 

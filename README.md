@@ -105,12 +105,12 @@ local result, err = client:CepLookup():load({ cep = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/viacep-address-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
-| Python | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
-| PHP | `voxgig-sdk/viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
+| TypeScript | `@voxgig-sdk/viacep-address-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
+| Python | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
+| PHP | `voxgig-sdk/viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/viacep-address-lookup-sdk/go` | `go get github.com/voxgig-sdk/viacep-address-lookup-sdk/go@latest` |
-| Ruby | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
-| Lua | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/releases) |
+| Ruby | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
+| Lua | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/viacep-address-lookup-sdk/go-cli` | `go install github.com/voxgig-sdk/viacep-address-lookup-sdk/go-cli/cmd/viacep-address-lookup@latest` |
 | Go MCP server | `github.com/voxgig-sdk/viacep-address-lookup-sdk/go-mcp` | `go get github.com/voxgig-sdk/viacep-address-lookup-sdk/go-mcp@latest` |
 
