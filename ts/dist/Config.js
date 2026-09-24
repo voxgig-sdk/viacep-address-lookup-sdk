@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,53 +107,63 @@ class Config {
             "fields": [
                 {
                     "name": "bairro",
-                    "short": "Neighborhood",
-                    "type": "`$STRING`"
+                    "title": "Bairro",
+                    "type": "`$STRING`",
+                    "short": "Neighborhood"
                 },
                 {
                     "name": "cep",
-                    "short": "Postal code (CEP) in formatted style",
-                    "type": "`$STRING`"
+                    "title": "Cep",
+                    "type": "`$STRING`",
+                    "short": "Postal code (CEP) in formatted style"
                 },
                 {
                     "name": "complemento",
-                    "short": "Additional address information",
-                    "type": "`$STRING`"
+                    "title": "Complemento",
+                    "type": "`$STRING`",
+                    "short": "Additional address information"
                 },
                 {
                     "name": "ddd",
-                    "short": "Area code (DDD)",
-                    "type": "`$STRING`"
+                    "title": "Ddd",
+                    "type": "`$STRING`",
+                    "short": "Area code (DDD)"
                 },
                 {
                     "name": "gia",
-                    "short": "GIA code (São Paulo state)",
-                    "type": "`$STRING`"
+                    "title": "Gia",
+                    "type": "`$STRING`",
+                    "short": "GIA code (São Paulo state)"
                 },
                 {
                     "name": "ibge",
-                    "short": "IBGE city code",
-                    "type": "`$STRING`"
+                    "title": "Ibge",
+                    "type": "`$STRING`",
+                    "short": "IBGE city code"
                 },
                 {
                     "name": "localidade",
-                    "short": "City name",
-                    "type": "`$STRING`"
+                    "title": "Localidade",
+                    "type": "`$STRING`",
+                    "short": "City name"
                 },
                 {
                     "name": "logradouro",
-                    "short": "Street name",
-                    "type": "`$STRING`"
+                    "title": "Logradouro",
+                    "type": "`$STRING`",
+                    "short": "Street name"
                 },
                 {
                     "name": "siafi",
-                    "short": "SIAFI code",
-                    "type": "`$STRING`"
+                    "title": "Siafi",
+                    "type": "`$STRING`",
+                    "short": "SIAFI code"
                 },
                 {
                     "name": "uf",
-                    "short": "State abbreviation",
-                    "type": "`$STRING`"
+                    "title": "Uf",
+                    "type": "`$STRING`",
+                    "short": "State abbreviation"
                 }
             ],
             "name": "cep_lookup",
@@ -170,18 +173,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": "01310100",
-                                        "kind": "param",
-                                        "name": "cep",
-                                        "orig": "cep",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/{cep}/json",
@@ -193,33 +184,34 @@ class Config {
                                     "lit": "json"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "cep"
-                                ]
-                            },
+                            "parts": [
+                                "{cep}",
+                                "json"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "{cep}",
-                                "json"
-                            ]
-                        },
-                        {
                             "args": {
                                 "params": [
                                     {
-                                        "example": "01310100",
-                                        "kind": "param",
                                         "name": "cep",
                                         "orig": "cep",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
                                         "reqd": true,
-                                        "type": "`$STRING`"
+                                        "example": "01310100"
                                     }
                                 ]
                             },
+                            "select": {
+                                "exist": [
+                                    "cep"
+                                ]
+                            }
+                        },
+                        {
                             "kind": "http",
                             "method": "GET",
                             "orig": "/{cep}/xml",
@@ -231,19 +223,32 @@ class Config {
                                     "lit": "xml"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "cep"
-                                ]
-                            },
+                            "parts": [
+                                "{cep}",
+                                "xml"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "{cep}",
-                                "xml"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "cep",
+                                        "orig": "cep",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "01310100"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "cep"
+                                ]
+                            }
                         }
                     ]
                 }

@@ -1,0 +1,32 @@
+# BasicCepLookupFlow
+
+main: kit: flow: BasicCepLookupFlow:
+{
+  entity: "cep_lookup",
+  kind: "basic",
+  name: "BasicCepLookupFlow",
+  step: [
+    {
+      i: {
+        ref: "cep_lookup_ref01",
+        srcdatavar: "cep_lookup_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "cep_lookup01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-cep_lookup_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCepLookupFlow"
+}

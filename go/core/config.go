@@ -91,53 +91,63 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "bairro",
-						"short": "Neighborhood",
+						"title": "Bairro",
 						"type": "`$STRING`",
+						"short": "Neighborhood",
 					},
 					map[string]any{
 						"name": "cep",
-						"short": "Postal code (CEP) in formatted style",
+						"title": "Cep",
 						"type": "`$STRING`",
+						"short": "Postal code (CEP) in formatted style",
 					},
 					map[string]any{
 						"name": "complemento",
-						"short": "Additional address information",
+						"title": "Complemento",
 						"type": "`$STRING`",
+						"short": "Additional address information",
 					},
 					map[string]any{
 						"name": "ddd",
-						"short": "Area code (DDD)",
+						"title": "Ddd",
 						"type": "`$STRING`",
+						"short": "Area code (DDD)",
 					},
 					map[string]any{
 						"name": "gia",
-						"short": "GIA code (São Paulo state)",
+						"title": "Gia",
 						"type": "`$STRING`",
+						"short": "GIA code (São Paulo state)",
 					},
 					map[string]any{
 						"name": "ibge",
-						"short": "IBGE city code",
+						"title": "Ibge",
 						"type": "`$STRING`",
+						"short": "IBGE city code",
 					},
 					map[string]any{
 						"name": "localidade",
-						"short": "City name",
+						"title": "Localidade",
 						"type": "`$STRING`",
+						"short": "City name",
 					},
 					map[string]any{
 						"name": "logradouro",
-						"short": "Street name",
+						"title": "Logradouro",
 						"type": "`$STRING`",
+						"short": "Street name",
 					},
 					map[string]any{
 						"name": "siafi",
-						"short": "SIAFI code",
+						"title": "Siafi",
 						"type": "`$STRING`",
+						"short": "SIAFI code",
 					},
 					map[string]any{
 						"name": "uf",
-						"short": "State abbreviation",
+						"title": "Uf",
 						"type": "`$STRING`",
+						"short": "State abbreviation",
 					},
 				},
 				"name": "cep_lookup",
@@ -147,18 +157,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "01310100",
-											"kind": "param",
-											"name": "cep",
-											"orig": "cep",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/{cep}/json",
@@ -170,33 +168,34 @@ func MakeConfig() map[string]any {
 										"lit": "json",
 									},
 								},
+								"parts": []any{
+									"{cep}",
+									"json",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "cep",
+											"orig": "cep",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "01310100",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"cep",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"{cep}",
-									"json",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "01310100",
-											"kind": "param",
-											"name": "cep",
-											"orig": "cep",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/{cep}/xml",
@@ -208,18 +207,31 @@ func MakeConfig() map[string]any {
 										"lit": "xml",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"cep",
-									},
+								"parts": []any{
+									"{cep}",
+									"xml",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"{cep}",
-									"xml",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "cep",
+											"orig": "cep",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "01310100",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"cep",
+									},
 								},
 							},
 						},

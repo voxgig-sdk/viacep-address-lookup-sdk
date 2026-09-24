@@ -1,7 +1,7 @@
 // Typed models for the ViacepAddressLookup SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,16 +14,6 @@ import (
 
 // CepLookup is the typed data model for the cep_lookup entity.
 type CepLookup struct {
-	Bairro *string `json:"bairro,omitempty"`
-	Cep *string `json:"cep,omitempty"`
-	Complemento *string `json:"complemento,omitempty"`
-	Ddd *string `json:"ddd,omitempty"`
-	Gia *string `json:"gia,omitempty"`
-	Ibge *string `json:"ibge,omitempty"`
-	Localidade *string `json:"localidade,omitempty"`
-	Logradouro *string `json:"logradouro,omitempty"`
-	Siafi *string `json:"siafi,omitempty"`
-	Uf *string `json:"uf,omitempty"`
 }
 
 // CepLookupLoadMatch is the typed request payload for CepLookup.LoadTyped.

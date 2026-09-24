@@ -24,84 +24,160 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "cep_lookup": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "bairro",
-              "req": false,
-              "short": "Neighborhood",
-              "type": "`$STRING`"
+          "fields": {
+            "bairro": {
+              "a": true,
+              "h": "Bairro",
+              "n": "bairro",
+              "r": false,
+              "sh": "Neighborhood",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "cep",
-              "req": false,
-              "short": "Postal code (CEP) in formatted style",
-              "type": "`$STRING`"
+            "cep": {
+              "a": true,
+              "h": "Cep",
+              "n": "cep",
+              "r": false,
+              "sh": "Postal code (CEP) in formatted style",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "complemento",
-              "req": false,
-              "short": "Additional address information",
-              "type": "`$STRING`"
+            "complemento": {
+              "a": true,
+              "h": "Complemento",
+              "n": "complemento",
+              "r": false,
+              "sh": "Additional address information",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "ddd",
-              "req": false,
-              "short": "Area code (DDD)",
-              "type": "`$STRING`"
+            "ddd": {
+              "a": true,
+              "h": "Ddd",
+              "n": "ddd",
+              "r": false,
+              "sh": "Area code (DDD)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "gia",
-              "req": false,
-              "short": "GIA code (São Paulo state)",
-              "type": "`$STRING`"
+            "gia": {
+              "a": true,
+              "h": "Gia",
+              "n": "gia",
+              "r": false,
+              "sh": "GIA code (São Paulo state)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "ibge",
-              "req": false,
-              "short": "IBGE city code",
-              "type": "`$STRING`"
+            "ibge": {
+              "a": true,
+              "h": "Ibge",
+              "n": "ibge",
+              "r": false,
+              "sh": "IBGE city code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "localidade",
-              "req": false,
-              "short": "City name",
-              "type": "`$STRING`"
+            "localidade": {
+              "a": true,
+              "h": "Localidade",
+              "n": "localidade",
+              "r": false,
+              "sh": "City name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "logradouro",
-              "req": false,
-              "short": "Street name",
-              "type": "`$STRING`"
+            "logradouro": {
+              "a": true,
+              "h": "Logradouro",
+              "n": "logradouro",
+              "r": false,
+              "sh": "Street name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "siafi",
-              "req": false,
-              "short": "SIAFI code",
-              "type": "`$STRING`"
+            "siafi": {
+              "a": true,
+              "h": "Siafi",
+              "n": "siafi",
+              "r": false,
+              "sh": "SIAFI code",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "uf",
-              "req": false,
-              "short": "State abbreviation",
-              "type": "`$STRING`"
+            "uf": {
+              "a": true,
+              "h": "Uf",
+              "n": "uf",
+              "r": false,
+              "sh": "State abbreviation",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "cep_lookup",
           "op": {
             "load": {
@@ -109,30 +185,35 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /{cep}/json",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "01310100",
-                        "kind": "param",
-                        "name": "cep",
-                        "orig": "cep",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "01310100",
+                        "k": "param",
+                        "n": "cep",
+                        "or": "cep",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /{cep}/json",
-                    "json": "{\"operationId\":\"getCepJson\",\"parameters\":[{\"description\":\"Brazilian postal code (CEP) - 8 digits with or without hyphen (e.g., 01310-100 or 01310100)\",\"in\":\"path\",\"name\":\"cep\",\"required\":true,\"schema\":{\"example\":\"01310100\",\"pattern\":\"^[0-9]{8}$|^[0-9]{5}-[0-9]{3}$\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"invalidCep\":{\"summary\":\"Invalid CEP response\",\"value\":{\"erro\":true}},\"validCep\":{\"summary\":\"Valid CEP response\",\"value\":{\"bairro\":\"Bela Vista\",\"cep\":\"01310-100\",\"complemento\":\"de 612 a 1510 - lado par\",\"ddd\":\"11\",\"gia\":\"1004\",\"ibge\":\"3550308\",\"localidade\":\"São Paulo\",\"logradouro\":\"Avenida Paulista\",\"siafi\":\"7107\",\"uf\":\"SP\"}}},\"schema\":{\"properties\":{\"bairro\":{\"description\":\"Neighborhood\",\"example\":\"Bela Vista\",\"type\":\"string\"},\"cep\":{\"description\":\"Postal code (CEP) in formatted style\",\"example\":\"01310-100\",\"type\":\"string\"},\"complemento\":{\"description\":\"Additional address information\",\"example\":\"de 612 a 1510 - lado par\",\"type\":\"string\"},\"ddd\":{\"description\":\"Area code (DDD)\",\"example\":\"11\",\"type\":\"string\"},\"gia\":{\"description\":\"GIA code (São Paulo state)\",\"example\":\"1004\",\"type\":\"string\"},\"ibge\":{\"description\":\"IBGE city code\",\"example\":\"3550308\",\"type\":\"string\"},\"localidade\":{\"description\":\"City name\",\"example\":\"São Paulo\",\"type\":\"string\"},\"logradouro\":{\"description\":\"Street name\",\"example\":\"Avenida Paulista\",\"type\":\"string\"},\"siafi\":{\"description\":\"SIAFI code\",\"example\":\"7107\",\"type\":\"string\"},\"uf\":{\"description\":\"State abbreviation\",\"example\":\"SP\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with address information\"},\"400\":{\"description\":\"Bad request - Invalid CEP format\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/{cep}/json",
+                  "q": {
+                    "exist": [
+                      "cep"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/{cep}/json",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "var": "cep"
                     },
@@ -140,41 +221,41 @@
                       "lit": "json"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "cep"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /{cep}/xml",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "example": "01310100",
-                        "kind": "param",
-                        "name": "cep",
-                        "orig": "cep",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "ex": "01310100",
+                        "k": "param",
+                        "n": "cep",
+                        "or": "cep",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /{cep}/xml",
-                    "json": "{\"operationId\":\"getCepXml\",\"parameters\":[{\"description\":\"Brazilian postal code (CEP) - 8 digits with or without hyphen (e.g., 01310-100 or 01310100)\",\"in\":\"path\",\"name\":\"cep\",\"required\":true,\"schema\":{\"example\":\"01310100\",\"pattern\":\"^[0-9]{8}$|^[0-9]{5}-[0-9]{3}$\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/xml\":{\"schema\":{\"type\":\"object\",\"xml\":{\"name\":\"xmlcep\"}}}},\"description\":\"Successful response with address information in XML format\"},\"400\":{\"description\":\"Bad request - Invalid CEP format\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/{cep}/xml",
+                  "q": {
+                    "exist": [
+                      "cep"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/{cep}/xml",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "var": "cep"
                     },
@@ -182,12 +263,7 @@
                       "lit": "xml"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "cep"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -616,19 +692,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "cep_lookup_ref01",
                 "srcdatavar": "cep_lookup_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "cep_lookup01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

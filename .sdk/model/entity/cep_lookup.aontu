@@ -1,0 +1,167 @@
+# Entity: cep_lookup
+
+main: kit: entity: cep_lookup: {
+
+  alias: field: {}
+
+  fields: {
+    bairro: {
+      h: "Bairro"
+      n: "bairro"
+      r: false
+      sh: "Neighborhood"
+      t: "`$STRING`"
+    }
+    cep: {
+      h: "Cep"
+      n: "cep"
+      r: false
+      sh: "Postal code (CEP) in formatted style"
+      t: "`$STRING`"
+    }
+    complemento: {
+      h: "Complemento"
+      n: "complemento"
+      r: false
+      sh: "Additional address information"
+      t: "`$STRING`"
+    }
+    ddd: {
+      h: "Ddd"
+      n: "ddd"
+      r: false
+      sh: "Area code (DDD)"
+      t: "`$STRING`"
+    }
+    gia: {
+      h: "Gia"
+      n: "gia"
+      r: false
+      sh: "GIA code (São Paulo state)"
+      t: "`$STRING`"
+    }
+    ibge: {
+      h: "Ibge"
+      n: "ibge"
+      r: false
+      sh: "IBGE city code"
+      t: "`$STRING`"
+    }
+    localidade: {
+      h: "Localidade"
+      n: "localidade"
+      r: false
+      sh: "City name"
+      t: "`$STRING`"
+    }
+    logradouro: {
+      h: "Logradouro"
+      n: "logradouro"
+      r: false
+      sh: "Street name"
+      t: "`$STRING`"
+    }
+    siafi: {
+      h: "Siafi"
+      n: "siafi"
+      r: false
+      sh: "SIAFI code"
+      t: "`$STRING`"
+    }
+    uf: {
+      h: "Uf"
+      n: "uf"
+      r: false
+      sh: "State abbreviation"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "cep_lookup"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /{cep}/json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "01310100"
+                k: "param"
+                n: "cep"
+                or: "cep"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{cep}/json"
+          q: {
+            exist: [
+              "cep"
+            ]
+          }
+          s: [
+            {
+              var: "cep"
+            }
+            {
+              lit: "json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /{cep}/xml"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "01310100"
+                k: "param"
+                n: "cep"
+                or: "cep"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/{cep}/xml"
+          q: {
+            exist: [
+              "cep"
+            ]
+          }
+          s: [
+            {
+              var: "cep"
+            }
+            {
+              lit: "xml"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -99,53 +99,63 @@ module ViacepAddressLookupConfig
           "fields" => [
             {
               "name" => "bairro",
-              "short" => "Neighborhood",
+              "title" => "Bairro",
               "type" => "`$STRING`",
+              "short" => "Neighborhood",
             },
             {
               "name" => "cep",
-              "short" => "Postal code (CEP) in formatted style",
+              "title" => "Cep",
               "type" => "`$STRING`",
+              "short" => "Postal code (CEP) in formatted style",
             },
             {
               "name" => "complemento",
-              "short" => "Additional address information",
+              "title" => "Complemento",
               "type" => "`$STRING`",
+              "short" => "Additional address information",
             },
             {
               "name" => "ddd",
-              "short" => "Area code (DDD)",
+              "title" => "Ddd",
               "type" => "`$STRING`",
+              "short" => "Area code (DDD)",
             },
             {
               "name" => "gia",
-              "short" => "GIA code (São Paulo state)",
+              "title" => "Gia",
               "type" => "`$STRING`",
+              "short" => "GIA code (São Paulo state)",
             },
             {
               "name" => "ibge",
-              "short" => "IBGE city code",
+              "title" => "Ibge",
               "type" => "`$STRING`",
+              "short" => "IBGE city code",
             },
             {
               "name" => "localidade",
-              "short" => "City name",
+              "title" => "Localidade",
               "type" => "`$STRING`",
+              "short" => "City name",
             },
             {
               "name" => "logradouro",
-              "short" => "Street name",
+              "title" => "Logradouro",
               "type" => "`$STRING`",
+              "short" => "Street name",
             },
             {
               "name" => "siafi",
-              "short" => "SIAFI code",
+              "title" => "Siafi",
               "type" => "`$STRING`",
+              "short" => "SIAFI code",
             },
             {
               "name" => "uf",
-              "short" => "State abbreviation",
+              "title" => "Uf",
               "type" => "`$STRING`",
+              "short" => "State abbreviation",
             },
           ],
           "name" => "cep_lookup",
@@ -155,18 +165,6 @@ module ViacepAddressLookupConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "example" => "01310100",
-                        "kind" => "param",
-                        "name" => "cep",
-                        "orig" => "cep",
-                        "reqd" => true,
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{cep}/json",
@@ -178,33 +176,34 @@ module ViacepAddressLookupConfig
                       "lit" => "json",
                     },
                   ],
+                  "parts" => [
+                    "{cep}",
+                    "json",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "cep",
+                        "orig" => "cep",
+                        "type" => "`$STRING`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => "01310100",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "cep",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "{cep}",
-                    "json",
-                  ],
                 },
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "example" => "01310100",
-                        "kind" => "param",
-                        "name" => "cep",
-                        "orig" => "cep",
-                        "reqd" => true,
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/{cep}/xml",
@@ -216,19 +215,32 @@ module ViacepAddressLookupConfig
                       "lit" => "xml",
                     },
                   ],
+                  "parts" => [
+                    "{cep}",
+                    "xml",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "cep",
+                        "orig" => "cep",
+                        "type" => "`$STRING`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => "01310100",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "cep",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "{cep}",
-                    "xml",
-                  ],
                 },
               ],
             },
