@@ -106,11 +106,11 @@ local result, err = client:CepLookup():load({ cep = "example" })
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/viacep-address-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
-| Python | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
-| PHP | `voxgig-sdk/viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
+| Python | `voxgig-sdk-viacep-address-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
+| PHP | `voxgig-sdk/viacep-address-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/viacep-address-lookup-sdk/go` | `go get github.com/voxgig-sdk/viacep-address-lookup-sdk/go@latest` |
-| Ruby | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
-| Lua | `voxgig-sdk-viacep-address-lookup` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
+| Ruby | `voxgig-sdk-viacep-address-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
+| Lua | `voxgig-sdk-viacep-address-lookup-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/viacep-address-lookup-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/viacep-address-lookup-sdk/go-cli` | `go install github.com/voxgig-sdk/viacep-address-lookup-sdk/go-cli/cmd/viacep-address-lookup@latest` |
 | Go MCP server | `github.com/voxgig-sdk/viacep-address-lookup-sdk/go-mcp` | `go get github.com/voxgig-sdk/viacep-address-lookup-sdk/go-mcp@latest` |
 
@@ -340,10 +340,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
